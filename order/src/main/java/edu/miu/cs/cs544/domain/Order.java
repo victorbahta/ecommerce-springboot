@@ -12,10 +12,12 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @OneToMany
     @JoinColumn(name = "orderId")
+    @Transient
     private List<OrderLineItem> lineItems;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +37,7 @@ public class Order extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "shippingAddressId")
+    @Transient
     private Address shippingAddress;
 
     private Integer customerId;
