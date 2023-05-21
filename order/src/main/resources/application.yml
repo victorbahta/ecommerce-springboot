@@ -1,1 +1,10 @@
+server:
+  port: 8081
 
+spring:
+  datasource:
+    url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=shopping_cart;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
