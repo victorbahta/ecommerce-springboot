@@ -3,10 +3,10 @@ package edu.miu.cs.cs544.domain;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Embeddable
 @Data
 public class Audit {
-    private LocalDate modifiedDate;
+    private Date modifiedDate = new Date();
 }

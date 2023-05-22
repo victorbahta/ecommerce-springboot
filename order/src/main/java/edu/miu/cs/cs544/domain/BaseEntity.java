@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 public class BaseEntity {
     @Embedded
-    private Audit audit;
+    private Audit audit = new Audit();
 }
