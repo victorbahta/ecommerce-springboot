@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.function.EntityResponse;
 
-@Controller
+@RestController
 @RequestMapping("/products")
 public class ProductController {
 
@@ -33,5 +33,23 @@ public class ProductController {
     public ResponseEntity<?> add(@RequestBody ProductDTO productDTO){
         var res = productService.add(productDTO);
         return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/productItem")
+    public ResponseEntity<?> addProductItem(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
+        ProductDTO res = productService.addProductItem(id, productDTO);
+        return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Integer id){
+        boolean res = productService.delete(id);
+        return new ResponseEntity<Boolean>(res, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
+        boolean res = productService.update(id, productDTO);
+        return new ResponseEntity<Boolean>(res, HttpStatus.OK);
     }
 }
