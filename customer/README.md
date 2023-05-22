@@ -26,6 +26,7 @@ Update customer
     "firstName": "Frank",
     "lastName": "Jhon",
     "email": "frank.123@gmail.com",
+        "password":"1234",
     "billingAddress": {
         "street": "4th street",
         "city": "Fairfield",

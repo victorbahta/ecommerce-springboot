@@ -1,6 +1,7 @@
 package edu.miu.cs.cs544.domain.address;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.miu.cs.cs544.domain.Audit;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
@@ -25,4 +26,7 @@ public class Address {
     private boolean isDefault;
     @Enumerated(EnumType.STRING)
     AddressType type;
+
+    @Embedded
+    private Audit audit;
 }

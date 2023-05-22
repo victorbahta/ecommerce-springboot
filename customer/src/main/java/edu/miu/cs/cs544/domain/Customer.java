@@ -1,24 +1,40 @@
 package edu.miu.cs.cs544.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import edu.miu.cs.cs544.domain.address.Address;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.Collection;
 
 @Data
 @Entity
-public class Customer {
+public class Customer extends Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column( nullable = false)
     private String firstName;
 
+    @Column( nullable = false)
     private String lastName;
 
+    @Column(unique = true, nullable = false)
+    @NotEmpty
+    @Email
     private String email;
+
+    @Size(min = 4)
+    private String password;
+
+    @JsonProperty
+    private boolean isAdmin;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billingAddressId")
