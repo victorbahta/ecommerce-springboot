@@ -40,6 +40,14 @@ public class CreditCardServiceImpl implements CreditCardService {
         return creditCardDtoArrayList;
     }
 
+    public CreditCardDto findAllByCardId(Integer customerId, Integer cardId){
+
+        var creditCard = new CreditCard();
+        creditCard = creditCardRepository.findAllByCardId(customerId, cardId);
+        return modelMapper.map(creditCard, CreditCardDto.class);
+
+    }
+
     @Transactional
     public boolean addNewCreditCard(Integer customerId, CreditCardDto creditCardDto){
         try{
@@ -49,9 +57,6 @@ public class CreditCardServiceImpl implements CreditCardService {
             customerRepository.findById(customerId).ifPresent(customer -> {
                         customer.getCreditCards().add(creditCard);
                         customerRepository.save(customer);
-
-                        log.info("An INFO Message {}", customer);
-
                         isSaved.set(true);
                     });
 

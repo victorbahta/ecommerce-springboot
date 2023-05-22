@@ -13,6 +13,7 @@ import java.util.List;
 public interface CreditCardService {
 
     public List<CreditCardDto> findAll(Integer customerId);
+    public CreditCardDto findAllByCardId(Integer customerId, Integer cardId);
 
     public boolean addNewCreditCard(Integer customerId, CreditCardDto creditCardDto);
 }

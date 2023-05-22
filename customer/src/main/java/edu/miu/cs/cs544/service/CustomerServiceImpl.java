@@ -1,8 +1,10 @@
 package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.domain.Customer;
+import edu.miu.cs.cs544.domain.address.AddressType;
 import edu.miu.cs.cs544.dto.CustomerDto;
 import edu.miu.cs.cs544.repository.CustomerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
@@ -37,10 +40,38 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public boolean addNewCustomer(CustomerDto customerDto) {
 
-        var customer = mapDtoToCustomer(customerDto);
-        customerRepo.save(customer);
-        return true;
+        try {
+            var customer = mapDtoToCustomer(customerDto);
+            customer.getBillingAddress().setType(AddressType.BILLING);
+            customer.getShippingAddress().forEach(address -> {
+                address.setType(AddressType.SHIPPING);
+            });
+
+            customerRepo.save(customer);
+            return true;
+        }catch (Exception ex){
+            log.error(ex.getMessage());
+            return false;
+        }
     }
+
+    @Override
+    public boolean updateCustomer(CustomerDto customerDto, Integer customerId){
+        try {
+            var customer = mapDtoToCustomer(customerDto);
+            customer.setId(customerId);
+            customer.getBillingAddress().setType(AddressType.BILLING);
+            customer.getShippingAddress().forEach(address -> {
+                address.setType(AddressType.SHIPPING);
+            });
+            customerRepo.save(customer);
+            return true;
+        }catch (Exception ex){
+            log.error(ex.getMessage());
+            return false;
+        }
+    }
+
 
     @Override
     public boolean deleteById(Integer id) {
@@ -51,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     private CustomerDto mapCustomerToDto(Customer cust) {
         var customerDto = modelMapper.map(cust, CustomerDto.class);
-//        customerDto.setAddress(modelMapper.map(cust.getAddress(), AddressDto.class));
+//        customerDto.setBillingAddress(modelMapper.map(cust.getBillingAddress(), Add.class));
         //customerDto.setUser(modelMapper.map(cust.getUser(), UserDto.class));
         return customerDto;
     }
