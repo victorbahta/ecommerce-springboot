@@ -1,1 +1,38 @@
+server:
+  port: 8099
+spring:
+  main:
+    web-application-type: reactive
+  datasource:
+    url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=shopping_cart;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+              - HEAD
+      routes:
+        - id: reportingModule
+          uri: lb://ReportingService
+          predicates:
+            - Path= /report/**
 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
