@@ -21,9 +21,9 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    /******* Customer api ********/
     @GetMapping
     ResponseEntity<List<CustomerDto>> findAll() {
-
         return ResponseEntity.ok(customerService.findAll());
     }
 
@@ -40,15 +40,28 @@ public class CustomerController {
                 .body(customerService.addNewCustomer(customerDto));
     }
 
-    @DeleteMapping("/{id}")
-    ResponseEntity<Boolean> deleteById(@PathVariable Integer id) {
-        return ResponseEntity.ok(customerService.deleteById(id));
+    @PutMapping("/{customerId}")
+    ResponseEntity<Boolean> updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Integer customerId) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(customerService.updateCustomer(customerDto, customerId));
+    }
+
+    @DeleteMapping("/{customerId}")
+    ResponseEntity<Boolean> deleteById(@PathVariable Integer customerId) {
+        return ResponseEntity.ok(customerService.deleteById(customerId));
     }
 
 
+    /***** Credit card api under customer ****/
     @GetMapping("/{customerId}/credit-cards")
     ResponseEntity<List<CreditCardDto>> findCreditCardAll(@PathVariable Integer customerId) {
         return ResponseEntity.ok(creditCardService.findAll(customerId));
+    }
+
+    @GetMapping("/{customerId}/credit-cards/{cardId}")
+    ResponseEntity<CreditCardDto> findCreditCardAll(@PathVariable Integer customerId, @PathVariable Integer cardId) {
+        return ResponseEntity.ok(creditCardService.findAllByCardId(customerId,cardId));
     }
 
     @PostMapping("/{customerId}/credit-cards")
@@ -57,6 +70,8 @@ public class CustomerController {
                 .status(HttpStatus.CREATED)
                 .body(creditCardService.addNewCreditCard(customerId,creditCardDto));
     }
+
+
 
 
 
