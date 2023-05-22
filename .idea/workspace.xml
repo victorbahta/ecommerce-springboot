@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9e7b70f4-9016-44a6-b622-9746a15276cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/customer/README.md" afterDir="false" />
@@ -12,12 +13,36 @@
       <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/address/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/address/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/dto/CustomerDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/resources/import.sql" afterDir="false" />
+=======
+    <list default="true" id="0832e2c1-e98c-464b-8929-f4c89d0f8c34" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Reviewer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ReviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/application.yml" afterDir="false" />
+>>>>>>> 9a0497b (implemet product controller)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -26,6 +51,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 9a0497b (implemet product controller)
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -38,15 +65,26 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+<<<<<<< HEAD
   </component>
   <component name="ProjectId" id="2Q78Lplv0q3usU0qTi3MczURPrd" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+=======
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Q85dZwQqn0PZrTW50XFgpJ7r8j" />
+>>>>>>> 9a0497b (implemet product controller)
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -90,12 +128,33 @@
       </method>
     </configuration>
     <configuration name="Application (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.ProductModule">
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+>>>>>>> 9a0497b (implemet product controller)
       <module name="order" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="Application (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="product" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
@@ -105,6 +164,10 @@
     </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="auth" />
+=======
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="customer" />
+>>>>>>> 9a0497b (implemet product controller)
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,10 +180,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration name="ProductModule" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="product" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.Application (1)" />
+      <item itemvalue="Spring Boot.ProductModule" />
+      <item itemvalue="Spring Boot.AuthApplication" />
+    </list>
+>>>>>>> 9a0497b (implemet product controller)
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="9e7b70f4-9016-44a6-b622-9746a15276cd" name="Changes" comment="" />
       <created>1684693207219</created>
       <option name="number" value="Default" />
@@ -129,6 +209,14 @@
       <workItem from="1684693208516" duration="10384000" />
       <workItem from="1684756245005" duration="10285000" />
       <workItem from="1684772116122" duration="3934000" />
+=======
+      <changelist id="0832e2c1-e98c-464b-8929-f4c89d0f8c34" name="Changes" comment="" />
+      <created>1684722456354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684722456354</updated>
+      <workItem from="1684722458003" duration="2789000" />
+>>>>>>> 9a0497b (implemet product controller)
     </task>
     <servers />
   </component>

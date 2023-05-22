@@ -1,1 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=products;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
 
