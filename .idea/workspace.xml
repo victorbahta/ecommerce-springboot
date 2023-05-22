@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/customer/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/resources/import.sql" afterDir="false" />
 =======
     <list default="true" id="0832e2c1-e98c-464b-8929-f4c89d0f8c34" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Product.java" afterDir="false" />
@@ -36,6 +37,35 @@
       <change beforePath="$PROJECT_DIR$/product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/application.yml" afterDir="false" />
 >>>>>>> 9a0497b (implemet product controller)
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/CompositeProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/IndividualProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/CompositeProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/IndividualProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/cs544/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/configuration/ModelMapperConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/configuration/ModelMapperConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/configuration/ModelMapperConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/configuration/ModelMapperConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/cs544/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/domains/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/dto/ProductAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/dto/ProductAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/dto/ProductDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/dto/ProductDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/repositories/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/repositories/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/services/ProductServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/target/classes/edu/miu/cs/services/ProductServiceImp.class" afterDir="false" />
+>>>>>>> c465a55 (add composite to product)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +73,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c465a55 (add composite to product)
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -51,8 +84,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
 =======
 >>>>>>> 9a0497b (implemet product controller)
+=======
+>>>>>>> c465a55 (add composite to product)
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -137,14 +173,21 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "e490289e1324dada4227e45c8d727a9c",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.miu.cs" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.ProductModule">
     <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
 >>>>>>> 9a0497b (implemet product controller)
@@ -184,7 +227,7 @@
 =======
     <configuration name="ProductModule" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="product" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,12 +258,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684722456354</updated>
+<<<<<<< HEAD
       <workItem from="1684722458003" duration="2789000" />
 >>>>>>> 9a0497b (implemet product controller)
+=======
+      <workItem from="1684722458003" duration="4062000" />
+      <workItem from="1684769272741" duration="15513000" />
+>>>>>>> c465a55 (add composite to product)
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
