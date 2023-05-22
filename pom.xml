@@ -22,6 +22,7 @@
 		<module>customer</module>
 		<module>order</module>
 		<module>product</module>
+		<module>Eureka</module>
 	</modules>
 
 	<properties>
