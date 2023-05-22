@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class CreditCardDTO {
+public class CreditCardDto {
 
     private Integer id;
 
@@ -15,6 +15,6 @@ public class CreditCardDTO {
 
     private LocalDate expirationDate;
 
-    private LocalDate securityCode;
+    private String securityCode;
 
 }
