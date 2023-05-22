@@ -1,5 +1,6 @@
 package edu.miu.cs.cs544.domain.address;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
@@ -7,7 +8,6 @@ import lombok.Data;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType. JOINED)
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,9 @@ public class Address {
     private String state;
     @NotEmpty
     private String zip;
+
+    @JsonProperty
+    private boolean isDefault;
+    @Enumerated(EnumType.STRING)
+    AddressType type;
 }
