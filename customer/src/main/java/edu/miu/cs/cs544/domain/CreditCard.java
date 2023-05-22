@@ -22,9 +22,9 @@ public class CreditCard {
 
     private LocalDate expirationDate;
 
-    private LocalDate securityCode;
+    private String securityCode;
 
-    @Embedded
-    private Audit audit;
+//    @Embedded
+//    private Audit audit;
 
 }

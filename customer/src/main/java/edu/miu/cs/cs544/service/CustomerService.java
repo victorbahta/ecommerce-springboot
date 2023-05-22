@@ -13,6 +13,8 @@ public interface CustomerService {
 
     boolean addNewCustomer(CustomerDto customer);
 
+    boolean updateCustomer(CustomerDto customerDto, Integer customerId);
+
     boolean deleteById(Integer id);
 
 }

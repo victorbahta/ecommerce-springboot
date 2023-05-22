@@ -1,7 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
 import edu.miu.cs.cs544.domain.address.Address;
-import edu.miu.cs.cs544.domain.address.BillingAddress;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,15 +20,15 @@ public class Customer {
 
     private String email;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billingAddressId")
-    private BillingAddress billingAddress;
+    private Address billingAddress;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private Collection<Address> shippingAddress;
 
-    @OneToMany
+    @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name="customerId")
     private Collection<CreditCard> creditCards;
 
