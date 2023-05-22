@@ -4,19 +4,19 @@
 
 Fetch all customer
 ```bash
-[GET] http://localhost:8080/customers 
+[GET] http://localhost:8081/customers 
 ```
 Fetch a customer
 ```bash
-[POST] http://localhost:8080/customers/{customerId}
+[POST] http://localhost:8081/customers/{customerId}
 ```
 Save customer
 ```bash
-[POST] http://localhost:8080/customers 
+[POST] http://localhost:8081/customers 
 ```
 Update customer
 ```bash
-[PUT] http://localhost:8080/customers/{customerId}
+[PUT] http://localhost:8081/customers/{customerId}
 ```
 
 ## JSON Payload of customer
