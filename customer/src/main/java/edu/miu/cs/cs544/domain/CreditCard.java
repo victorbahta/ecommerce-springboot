@@ -10,20 +10,14 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-
 public class CreditCard {
     @Id
     @GeneratedValue
     private Integer id;
-
     private String name;
-
     private String creditNumber;
-
     private LocalDate expirationDate;
-
     private String securityCode;
-
     @Embedded
     private Audit audit;
 
