@@ -8,3 +8,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+api-client:
+  name: customer-rest-service
+  url: http://localhost:8081
+#  username: user
+#  password: pass
