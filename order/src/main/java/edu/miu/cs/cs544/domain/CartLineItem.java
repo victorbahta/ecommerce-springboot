@@ -1,17 +1,14 @@
 package edu.miu.cs.cs544.domain;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "OrderLineItem")
-public class OrderLineItem extends BaseEntity {
-
+@Table(name = "CartLineItem")
+public class CartLineItem extends BaseEntity {
     @Id
+    @GeneratedValue
     private Integer id;
 
     private Integer productId;
