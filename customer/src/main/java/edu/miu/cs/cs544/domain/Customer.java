@@ -29,7 +29,7 @@ public class Customer {
     @JoinColumn(name = "customerId")
     private Collection<Address> shippingAddress;
 
-    @OneToMany
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="customerId")
     private Collection<CreditCard> creditCards;
 
