@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.util.Collection;
+import java.util.PrimitiveIterator;
 
 @Data
 @ToString
@@ -17,5 +18,7 @@ public class ProductDTO {
     private String image;
     private String barcodeNumber;
     private int stock;
+    private ProductType productType;
     private Collection<ReviewDTO> reviews;
+    private Collection<ProductDTO> products;
 }
