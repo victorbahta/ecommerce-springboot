@@ -42,4 +42,6 @@ public class Order extends BaseEntity {
 
     private Integer customerId;
 
+    private Integer productId;
+
 }
