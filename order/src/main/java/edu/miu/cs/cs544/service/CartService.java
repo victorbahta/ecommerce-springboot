@@ -8,7 +8,7 @@ public interface CartService {
 
     CartDto createNewCart(Integer customerId);
 
-    CartDto addProductToCart(Integer cartId, Integer productId, Integer quantity);
+    CartDto addProductToCart(Integer cartId, Integer productId, Integer quantity, Double discountValue);
 
     CartDto updateCartLineItem(Integer cartId, Integer cartLineItemId, Integer quantity);
 

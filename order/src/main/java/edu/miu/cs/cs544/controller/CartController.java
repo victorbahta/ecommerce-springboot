@@ -1,6 +1,7 @@
 package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.contract.CartDto;
+import edu.miu.cs.cs544.feign.CustomerServiceFeignClient;
 import edu.miu.cs.cs544.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -35,9 +36,10 @@ public class CartController {
     @PostMapping("/{cartId}/entries")
     public CartDto addProductToCart(@PathVariable("cartId") Integer cartId,
                                     @RequestParam("productId") Integer productId,
-                                    @RequestParam("quantity") Integer quantity) {
+                                    @RequestParam("quantity") Integer quantity,
+                                    @RequestParam(name = "discountValue", required = false) Double discountValue) {
 
-        return cartService.addProductToCart(cartId, productId, quantity);
+        return cartService.addProductToCart(cartId, productId, quantity, discountValue);
     }
 
     @Operation(summary = "Update quantity of an line item in cart")

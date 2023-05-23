@@ -9,9 +9,10 @@ public class CartDto {
     private Integer id;
 
     private Integer customerId;
+    private CustomerDto customer;
 
     private List<CartLineItemDto> lineItems;
 
-    private Integer shippingAddressId;
-    private Integer creditCardId;
+    private AddressDto shippingAddress;
+    private CreditCardDto creditCard;
 }

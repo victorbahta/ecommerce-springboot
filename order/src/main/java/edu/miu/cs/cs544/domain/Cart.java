@@ -17,18 +17,23 @@ public class Cart extends BaseEntity {
 
     private Integer customerId;
 
-    private Integer shippingAddressId;
-    private Integer creditCardId;
+    private Double subTotal;
+
+    private Double taxAmount;
+
+    private Double shippingCost;
+
+    private Double total;
+
+    @ManyToOne
+    @JoinColumn(name = "shippingAddressId")
+    private Address shippingAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "creditCardId")
+    private CreditCard creditCard;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "cartId")
     private List<CartLineItem> lineItems = new ArrayList<>();
-
-//    @ManyToOne
-//    @JoinColumn(name = "shippingAddressId")
-//    private Address shippingAddress;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "creditCardId")
-//    private CreditCard creditCard;
 }
