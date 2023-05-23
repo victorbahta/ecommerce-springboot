@@ -6,17 +6,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "CreditCart")
 public class CreditCard extends BaseEntity {
 
     @Id
-    private String number;
+    private Integer id;
+    private String name;
+    private String creditNumber;
 
-    private Integer expiredMonth;
-    private Integer expiredYear;
-
+    private LocalDate expirationDate;
     @Column(length = 3)
     private String securityCode;
 }

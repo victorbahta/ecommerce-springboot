@@ -9,6 +9,7 @@ import lombok.Data;
 public class OrderLineItem extends BaseEntity {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @ManyToOne

@@ -63,7 +63,13 @@ public class CartServiceImpl implements CartService {
         Cart cart = new Cart();
         cart.setCustomerId(customerId);
         Cart savedCart = cartRepository.save(cart);
-        return cartConverter.toDto(savedCart);
+        CartDto cartDto = cartConverter.toDto(savedCart);
+        try {
+            customerServiceFeignClient.findCustomerById(customerId).ifPresent(cartDto::setCustomer);
+        } catch (Exception ex) {
+            LOG.error("Cannot call customer service api to get customer for id {}", customerId, ex);
+        }
+        return cartDto;
     }
 
     @Override
@@ -116,6 +122,7 @@ public class CartServiceImpl implements CartService {
         return cartRepository.findById(cartId).map(cart -> {
             try {
                 customerServiceFeignClient.findAddressById(cart.getCustomerId(), shippingAddressId).ifPresent(addr -> {
+                    addr.setAddressType(AddressType.Shipping);
                     cart.setShippingAddress(addressConverter.fromDto(addr));
                 });
             } catch(Exception ex) {
