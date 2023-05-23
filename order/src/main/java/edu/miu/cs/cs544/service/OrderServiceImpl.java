@@ -1,7 +1,6 @@
 package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.contract.OrderDto;
-import edu.miu.cs.cs544.contract.OrderResponse;
 import edu.miu.cs.cs544.domain.Cart;
 import edu.miu.cs.cs544.domain.Order;
 import edu.miu.cs.cs544.domain.OrderLineItem;
@@ -30,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
     private CartRepository cartRepository;
 
     @Autowired
-    private Converter<Order, OrderResponse> orderConverter;
+    private Converter<Order, OrderDto> orderConverter;
 
     @Autowired
     private ShippingCostStrategy shippingCostStrategy;
@@ -93,7 +92,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponse placeOrder(Integer cartId) {
+    public OrderDto placeOrder(Integer cartId) {
         return cartRepository.findById(cartId).map(cart-> {
             calculateCart(cart);
             Order order = copyCartToOrder(cart);
