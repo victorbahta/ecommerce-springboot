@@ -3,7 +3,6 @@ server:
 spring:
   main:
     web-application-type: reactive
-    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=authentication;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
@@ -22,23 +21,23 @@ spring:
         dialect: org.hibernate.dialect.SQLServerDialect
   cloud:
     gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-              - HEAD
       routes:
         - id: orderModule
           uri: lb://OrderService
           predicates:
             - Path= /orders/**, /carts/**
+        - id: customerModule
+          uri: lb://CustomerService
+          predicates:
+            - Path= /customers/**
+        - id: productModule
+          uri: lb://ProductService
+          predicates:
+            - Path= /products/**
 application:
+  paths:
+    noAuthentication: GET./orders,GET./carts
+#    requireAdmin:
   security:
     jwt:
       secret-key: 404E635266C56A586E3272357538A82F413F4428472B4B6250D45367566B5970
