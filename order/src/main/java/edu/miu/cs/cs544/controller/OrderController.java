@@ -1,75 +1,52 @@
 package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.contract.OrderDto;
-import edu.miu.cs.cs544.domain.Order;
-import edu.miu.cs.cs544.service.CartService;
-import edu.miu.cs.cs544.service.OrderServiceImpl;
+import edu.miu.cs.cs544.domain.OrderStatus;
+import edu.miu.cs.cs544.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders")
+@Tag(name = "Order API", description = "Order Controller")
 public class OrderController {
     @Autowired
-    OrderServiceImpl orderService;
-    @Operation(summary = "Create new order for customer")
-
-    @PostMapping("/{customerId}/products/{productId}")
-    public ResponseEntity<?> createOrder(@RequestBody Order order,
-                                         @PathVariable("customerId") Integer customerId,
-                                         @PathVariable("productId") Integer productId) {
-        if(customerId == 0 || productId == 0)
-            return new ResponseEntity<>("Invalid customer ID or proudct ID", HttpStatus.BAD_REQUEST);
-
-
-        OrderDto orderDto = orderService.createOrder(order, productId, customerId);
-        return new ResponseEntity<>(orderDto, HttpStatus.CREATED);
-    }
+    private OrderService orderService;
 
     @Operation(summary = "Get all orders of a customer")
-    @GetMapping("/customers/{customerID}")
-    public Page<OrderDto> getOrders(@PathVariable("customerID") Integer customerID) {
-        return orderService.getOrders(customerID, Pageable.ofSize(20));
+    @GetMapping
+    public Page<OrderDto> getOrders(@RequestHeader("customerId") Integer customerId) {
+        return orderService.getOrders(customerId, Pageable.ofSize(20));
     }
 
 
     @Operation(summary = "Get single order detail")
-    @GetMapping("/{orderID}")
-    public OrderDto getOrder(@PathVariable("orderID") Integer orderID) {
-        return orderService.getOrder(orderID);
+    @GetMapping("/{orderId}")
+    public OrderDto getOrder(@PathVariable("orderId") Integer orderId) {
+        return orderService.getOrder(orderId);
     }
 
     @Operation(summary = "Change order status")
-    @PutMapping("/{orderID}/status")
-    public ResponseEntity<String> returnOrder(@PathVariable("orderID") Integer orderID,
-            @RequestParam("status") String status) {
-        String response = orderService.changeOrderStatus(orderID, status);
-        return ResponseEntity.ok(response);
+    @PostMapping("/{orderId}/status")
+    public OrderDto changeStatus(@PathVariable("orderId") Integer orderId,
+            @RequestParam("status") String status) throws Exception {
+        return orderService.changeStatus(orderId, OrderStatus.valueOf(status));
     }
 
     @Operation(summary = "Return an order")
-    @PutMapping("/{orderID}")
-    public ResponseEntity<String> returnOrder(@PathVariable("orderID") Integer orderID) {
-        String response = orderService.returnOrder(orderID);
-        return ResponseEntity.ok(response);
+    @PostMapping("/{orderId}/return")
+    public OrderDto returnOrder(@PathVariable("orderId") Integer orderId) throws Exception {
+        return orderService.returnOrder(orderId);
     }
 
     @Operation(summary = "Cancel an order")
-    @DeleteMapping("/{orderID}")
-    public ResponseEntity<String> cancelOrder(@PathVariable("orderID") Integer orderID) {
-        String response = orderService.cancelOrder(orderID);
-        return ResponseEntity.ok(response);
-    }
-
-
-
-    @PostMapping
-    public OrderDto placeOrder(@RequestParam("cartId") Integer cartId) {
-        return orderService.placeOrder(cartId);
+    @PostMapping("/{orderId}/cancel")
+    public OrderDto cancelOrder(@PathVariable("orderId") Integer orderId) throws Exception {
+        return orderService.cancelOrder(orderId);
     }
 }
