@@ -11,7 +11,7 @@ public class CartLineItem extends BaseEntity {
     @GeneratedValue
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "productId")
     private Product product;
 

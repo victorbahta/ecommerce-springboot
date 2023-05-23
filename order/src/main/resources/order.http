@@ -1,12 +1,14 @@
 ###
-# Get all customers
+# Get all orders
 ###
-GET http://localhost:8081/customers
+GET http://localhost:8083/orders
+customerId: 1
 
 ###
-# Get cart
+# Get order by id
 ###
-GET http://localhost:8083/carts/{{cartId}}
+GET http://localhost:8083/orders/4
+customerId: 1
 
 ###
 # Create a new cart

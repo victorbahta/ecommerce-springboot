@@ -8,7 +8,6 @@ import java.util.List;
 public class CartDto {
     private Integer id;
 
-    private Integer customerId;
     private CustomerDto customer;
 
     private List<CartLineItemDto> lineItems;
