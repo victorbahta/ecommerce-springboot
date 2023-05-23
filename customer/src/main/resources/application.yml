@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=customers;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    url: jdbc:sqlserver://eafinalproject2.database.windows.net:1433;database=customers;user=tiendm@eafinalproject2;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10

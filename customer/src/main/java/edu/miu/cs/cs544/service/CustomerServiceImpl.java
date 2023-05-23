@@ -56,15 +56,10 @@ public class CustomerServiceImpl implements CustomerService{
                 });
 
             Customer savedCustomer = customerRepo.save(customer);
-            log.info("Test {}", savedCustomer);
+//            log.info("Test {}", savedCustomer);
 
             /*** Calling to auth service to save the user credential ***/
-            CustomerCredentialDto customerCredentialDto = new CustomerCredentialDto();
-            customerCredentialDto.setId(savedCustomer.getId());
-            customerCredentialDto.setEmail(savedCustomer.getEmail());
-            customerCredentialDto.setPassword(customerDto.getPassword());
-            customerCredentialDto.setAdmin(savedCustomer.isAdmin());
-            authService.saveCredential(customerCredentialDto);
+            saveCredentialForAuthService(savedCustomer, customerDto);
 
             return true;
 
@@ -88,7 +83,12 @@ public class CustomerServiceImpl implements CustomerService{
                     address.setType(AddressType.SHIPPING);
                 });
 
-            customerRepo.save(customer);
+            Customer savedCustomer = customerRepo.save(customer);
+
+            /*** Calling to auth service to save the user credential ***/
+            saveCredentialForAuthService(savedCustomer, customerDto);
+            log.info("Test {}", savedCustomer);
+
             return true;
         }catch (Exception ex){
             log.error(ex.getMessage());
@@ -103,6 +103,16 @@ public class CustomerServiceImpl implements CustomerService{
         return true;
     }
 
+
+    private void saveCredentialForAuthService(Customer savedCustomer, CustomerDto customerDto){
+        CustomerCredentialDto customerCredentialDto = new CustomerCredentialDto();
+        customerCredentialDto.setId(savedCustomer.getId());
+        customerCredentialDto.setEmail(savedCustomer.getEmail());
+        customerCredentialDto.setPassword(customerDto.getPassword());
+        customerCredentialDto.setAdmin(savedCustomer.isAdmin());
+        authService.saveCredential(customerCredentialDto);
+
+    }
 
     private CustomerDto mapCustomerToDto(Customer cust) {
         var customerDto = modelMapper.map(cust, CustomerDto.class);
