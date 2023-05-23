@@ -1,0 +1,58 @@
+###
+# Get all orders
+###
+GET http://localhost:8083/orders
+customerId: 1
+
+###
+# Get order by id
+###
+GET http://localhost:8083/orders/4
+customerId: 1
+
+###
+# Create a new cart
+###
+POST http://localhost:8083/carts
+customerId: 1
+
+> {%
+    client.global.set("cartId", response.body.id);
+%}
+
+###
+# Add a product to cart
+###
+POST http://localhost:8083/carts/{{cartId}}/entries?productId=101&quantity=1
+
+> {%
+    client.global.set("entryId", response.body.lineItems[0].id);
+%}
+
+###
+# Update an entry
+###
+PUT http://localhost:8083/carts/{{cartId}}/entries?cartEntryId={{entryId}}&quantity=3
+
+###
+# Delete an entry
+###
+DELETE http://localhost:8083/carts/{{cartId}}/entries?cartEntryId=202
+
+
+###
+# Select shipping address
+###
+POST http://localhost:8083/carts/{{cartId}}/shipping-address?shippingAddressId=100
+
+###
+# Update credit card
+###
+POST http://localhost:8083/carts/{{cartId}}/credit-card?creditCardId=201
+
+
+###
+# Place order
+###
+POST http://localhost:8083/carts/place-order?cartId={{cartId}}
+

@@ -1,9 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -12,14 +9,14 @@ import lombok.Data;
 public class OrderLineItem extends BaseEntity {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
-    private Integer productId;
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Product product;
 
     private Integer quantity;
 
     private Double discountValue;
-
-    @Embedded
-    private Audit audit;
 }

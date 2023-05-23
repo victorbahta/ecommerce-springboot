@@ -1,6 +1,8 @@
 package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.contract.CartDto;
+import edu.miu.cs.cs544.contract.OrderDto;
+import edu.miu.cs.cs544.feign.CustomerServiceFeignClient;
 import edu.miu.cs.cs544.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/carts")
-@Tag(name = "Reports API", description = "Cart Controller")
+@Tag(name = "Cart API", description = "Cart Controller")
 public class CartController {
 
     @Autowired
@@ -35,9 +37,10 @@ public class CartController {
     @PostMapping("/{cartId}/entries")
     public CartDto addProductToCart(@PathVariable("cartId") Integer cartId,
                                     @RequestParam("productId") Integer productId,
-                                    @RequestParam("quantity") Integer quantity) {
+                                    @RequestParam("quantity") Integer quantity,
+                                    @RequestParam(name = "discountValue", required = false) Double discountValue) {
 
-        return cartService.addProductToCart(cartId, productId, quantity);
+        return cartService.addProductToCart(cartId, productId, quantity, discountValue);
     }
 
     @Operation(summary = "Update quantity of an line item in cart")
@@ -58,7 +61,7 @@ public class CartController {
     }
 
     @Operation(summary = "Set shipping address in cart")
-    @PostMapping("/{cartId}/shippingaddress")
+    @PostMapping("/{cartId}/shipping-address")
     public CartDto selectShippingAddress(@PathVariable("cartId") Integer cartId,
                                          @RequestParam("shippingAddressId") Integer shippingAddressId) {
 
@@ -66,11 +69,16 @@ public class CartController {
     }
 
     @Operation(summary = "Set credit card in cart")
-    @PostMapping("/{cartId}/creditcard")
+    @PostMapping("/{cartId}/credit-card")
     public CartDto setCreditCard(@PathVariable("cartId") Integer cartId,
                                  @RequestParam("creditCardId") Integer creditCardId) {
 
         return cartService.setCreditCard(cartId, creditCardId);
     }
 
+    @Operation(summary = "Place an order")
+    @PostMapping("/place-order")
+    public OrderDto placeOrder(@RequestParam("cartId") Integer cartId) {
+        return cartService.placeOrder(cartId);
+    }
 }
