@@ -26,15 +26,8 @@ public abstract class ComponentProduct {
     private String image;
     private String barcodeNumber;
     private int stock;
+    private boolean isActive;
 
-//    public boolean isSingleProduct() {
-//        if (this.productItems == null || this.productItems.size() == 0) {
-//            return true;
-//        }
-//        return false;
-//    }
-
-    @OneToMany
-    @JoinColumn(name = "productId")
+    @OneToMany(mappedBy = "product")
     private Collection<Review> reviews;
 }

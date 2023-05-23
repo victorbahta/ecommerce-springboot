@@ -1,9 +1,6 @@
 package edu.miu.cs.domains;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -19,6 +16,9 @@ public class Review {
     private String description;
     private int numberOfStar;
     private Date reviewDate;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
+    private ComponentProduct product;
     @Embedded
     private Reviewer reviewer;
 }

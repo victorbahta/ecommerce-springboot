@@ -1,8 +1,6 @@
 package edu.miu.cs.configuration;
 
-import edu.miu.cs.domains.CompositeProduct;
-import edu.miu.cs.domains.IndividualProduct;
-import edu.miu.cs.domains.Review;
+import edu.miu.cs.domains.*;
 import edu.miu.cs.dto.ProductDTO;
 import edu.miu.cs.dto.ProductType;
 import edu.miu.cs.dto.ReviewDTO;
@@ -10,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
 
 @Configuration
 public class ModelMapperConfig {
@@ -33,6 +32,16 @@ public class ModelMapperConfig {
             protected void configure() {
                 map().setReviewerFirstname(source.getReviewer().getFirstname());
                 map().setReviewerLastname(source.getReviewer().getLastname());
+            }
+        });
+        modelMapper.addMappings(new PropertyMap<ReviewDTO, Review>() {
+            @Override
+            protected void configure() {
+                Reviewer reviewer = new Reviewer();
+                reviewer.setId(source.getReviewerId());
+                reviewer.setFirstname(source.getReviewerFirstname());
+                reviewer.setLastname(source.getReviewerLastname());
+                map().setReviewer(reviewer);
             }
         });
         return  modelMapper;
