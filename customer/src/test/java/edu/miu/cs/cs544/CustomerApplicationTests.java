@@ -17,7 +17,6 @@ class CustomerApplicationTests {
 
 	@TestConfiguration
 	static class CustomerServiceImplTestContextConfiguration {
-
 		@Bean
 		public CustomerService customerService() {
 			return new CustomerServiceImpl();
