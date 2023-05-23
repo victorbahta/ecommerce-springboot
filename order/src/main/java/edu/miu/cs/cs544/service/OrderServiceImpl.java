@@ -39,13 +39,13 @@ public class OrderServiceImpl implements OrderService {
 
 
     public OrderDto returnOrder(Integer orderId) throws Exception {
-        return this.changeStatus(orderId, OrderStatus.Returned);
+        return changeStatus(orderId, OrderStatus.Returned);
 
 
     }
 
     public OrderDto cancelOrder(Integer orderId) throws Exception {
-        return this.changeStatus(orderId, OrderStatus.Cancelled);
+        return changeStatus(orderId, OrderStatus.Cancelled);
     }
 
     public OrderDto changeStatus(Integer orderId, OrderStatus status) throws Exception {
