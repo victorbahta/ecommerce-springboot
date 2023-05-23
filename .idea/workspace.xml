@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ReviewDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ComponentProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ComponentProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/CompositeProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/CompositeProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/application.yml" afterDir="false" />
@@ -73,9 +64,13 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "76a4b1fcaea219d0c13cd4e6f0f8b931",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/product/src/main/resources" />
@@ -133,11 +128,63 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684797245420</updated>
-      <workItem from="1684797246553" duration="11549000" />
+      <workItem from="1684797246553" duration="18496000" />
+      <workItem from="1684860156950" duration="9211000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
