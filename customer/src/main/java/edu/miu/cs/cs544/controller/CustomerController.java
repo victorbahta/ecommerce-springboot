@@ -3,8 +3,10 @@ package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.dto.CreditCardDto;
 import edu.miu.cs.cs544.dto.CustomerDto;
+import edu.miu.cs.cs544.dto.ShippingAddressDto;
 import edu.miu.cs.cs544.service.CreditCardService;
 import edu.miu.cs.cs544.service.CustomerService;
+import edu.miu.cs.cs544.service.ShippingAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ public class CustomerController {
     CreditCardService creditCardService;
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private ShippingAddressService shippingAddressService;
 
     /******* Customer api ********/
     @GetMapping
@@ -60,8 +65,8 @@ public class CustomerController {
     }
 
     @GetMapping("/{customerId}/credit-cards/{cardId}")
-    ResponseEntity<CreditCardDto> findCreditCardAll(@PathVariable Integer customerId, @PathVariable Integer cardId) {
-        return ResponseEntity.ok(creditCardService.findAllByCardId(customerId,cardId));
+    ResponseEntity<CreditCardDto> findCreditCardByCreditId(@PathVariable Integer customerId, @PathVariable Integer cardId) {
+        return ResponseEntity.ok(creditCardService.findByCardId(customerId,cardId));
     }
 
     @PostMapping("/{customerId}/credit-cards")
@@ -71,6 +76,17 @@ public class CustomerController {
                 .body(creditCardService.addNewCreditCard(customerId,creditCardDto));
     }
 
+
+    /***** Shipping Address api under customer ****/
+    @GetMapping("/{customerId}/shipping-addressee")
+    ResponseEntity<List<ShippingAddressDto>> findShippingAddressAll(@PathVariable Integer customerId) {
+        return ResponseEntity.ok(shippingAddressService.findAll(customerId));
+    }
+
+    @GetMapping("/{customerId}/shipping-addressee/{shippingId}")
+    ResponseEntity<ShippingAddressDto> findCreditCardAll(@PathVariable Integer customerId, @PathVariable Integer shippingId) {
+        return ResponseEntity.ok(shippingAddressService.findByShippingId(customerId,shippingId));
+    }
 
 
 
