@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/configuration/ModelMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/dto/ReviewDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/repositories/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CustomerServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,33 +39,49 @@
     </option>
   </component>
   <component name="ProjectId" id="2QAXEFQuqDTyrlZLvTWHAvhW0Q4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/salmdo/EA/CS544-202305-07/product/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/salmdo/EA/CS544-202305-07/product/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/product/src/main/resources" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ProductService">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Eureka" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Eureka" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="order" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
@@ -139,5 +139,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
