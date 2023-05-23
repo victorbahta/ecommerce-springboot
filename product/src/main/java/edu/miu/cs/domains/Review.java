@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 @Data
 public class Review {
+
     @Id
     @GeneratedValue
     private int id;

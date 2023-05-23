@@ -1,0 +1,10 @@
+###
+# Get all products
+###
+GET http://localhost:8099/customers
+Authorization: Bearer {{token}}
+
+> {%
+    client.global.set("productId", 101);
+    client.global.set("productId2", 102);
+%}

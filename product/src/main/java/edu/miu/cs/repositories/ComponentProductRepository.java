@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ComponentProductRepository extends JpaRepository<ComponentProduct, Integer> {
     Page<ComponentProduct> findByIsActiveTrue(Pageable pageable);
 
-    @Query("select cp from CompositeProduct cp join fetch cp.productItems pi where cp.id = :id and  cp.isActive = true and cp.isActive = true")
-    ComponentProduct findProductItemsById(Integer id);
+    @Query(value = "select p.product_type from Product p where p.id = :id and p.is_active = 1", nativeQuery = true)
+    Optional<String> findProductTypeById(Integer id);
 
-    Page<ComponentProduct> findByNameOrDescription(String name, String description);
+    Page<ComponentProduct> findByIsActiveTrueAndNameContainingOrIsActiveTrueAndDescriptionContaining(String name, String description, Pageable pageable);
+//    Page<ComponentProduct> findByIsActiveTrueAndNameContainingOrDescriptionContaining(String name, String description, Pageable pageable);
 }

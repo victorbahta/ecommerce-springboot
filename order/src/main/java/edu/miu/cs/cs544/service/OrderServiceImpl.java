@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -39,23 +40,30 @@ public class OrderServiceImpl implements OrderService {
 
 
     public OrderDto returnOrder(Integer orderId) throws Exception {
-        return this.changeStatus(orderId, OrderStatus.Returned);
+        return changeStatus(orderId, OrderStatus.Returned);
 
 
     }
 
     public OrderDto cancelOrder(Integer orderId) throws Exception {
-        return this.changeStatus(orderId, OrderStatus.Cancelled);
+        return changeStatus(orderId, OrderStatus.Cancelled);
     }
 
     public OrderDto changeStatus(Integer orderId, OrderStatus status) throws Exception {
         return orderRepository.findById(orderId)
                 .map(o -> {
                     o.setStatus(status);
+                    updateOrderBasedOnStatus(o);
                     return orderRepository.save(o);
                 })
                 .map(orderConverter::toDto)
                 .orElseThrow(() -> new Exception("Cannot find order with id " + orderId));
+    }
+
+    private void updateOrderBasedOnStatus(Order o) {
+        switch (o.getStatus()) {
+            case Delivered -> o.setDeliveryDate(LocalDate.now());
+        }
     }
 
 

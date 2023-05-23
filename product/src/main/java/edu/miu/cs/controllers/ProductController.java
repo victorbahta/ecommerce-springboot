@@ -1,8 +1,12 @@
 package edu.miu.cs.controllers;
 
+import edu.miu.cs.domains.CompositeProduct;
 import edu.miu.cs.dto.ProductDTO;
+import edu.miu.cs.dto.ProductType;
 import edu.miu.cs.dto.ReviewDTO;
 import edu.miu.cs.services.ProductService;
+import edu.miu.cs.services.ReviewService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,15 +27,20 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ReviewService reviewService;
+
     @GetMapping
+    @Transactional
     public Page<ProductDTO> getAllProducts(Pageable pageable, @RequestParam(value = "search", required = false) String searchString) {
+        System.out.println(searchString);
         if (searchString == null || searchString.length() == 0){
-            return productService.getByNameOrDescription(searchString, pageable);
+            return productService.getAll(pageable);
         }
-        return productService.getAll(pageable);
+        return productService.getByNameOrDescription(searchString, pageable);
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getProductById(@PathVariable Integer id){
         var res = productService.getById(id);
         return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
@@ -44,9 +53,14 @@ public class ProductController {
     }
 
     @PostMapping("/{id}/productItem")
+    @Transactional
     public ResponseEntity<?> addProductItem(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
-        ProductDTO res = productService.addProductItem(id, productDTO);
-        return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+        ProductDTO productFromId = productService.getById(id);
+        if (productFromId != null && productFromId.getProductType() == ProductType.composite) {
+            ProductDTO res = productService.addProductItem(id, productDTO);
+            return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Could not add product item", HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/{id}")
@@ -61,15 +75,13 @@ public class ProductController {
         return new ResponseEntity<Boolean>(res, HttpStatus.OK);
     }
     @PostMapping("/{id}/reviews")
-    public String addReviewToProduct(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO, RedirectAttributes redirectAttributes){
-        redirectAttributes.addAttribute("productId", id);
-        redirectAttributes.addFlashAttribute("reviewDTO", reviewDTO);
-        return "redirect:/ReviewController";
+    public ResponseEntity<?> addReviewToProduct(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO){
+        var res = reviewService.addReview(id, reviewDTO);
+        return new ResponseEntity<ReviewDTO>(res, HttpStatus.OK);
     }
 
     @GetMapping("/{id}/reviews")
-    public String getReviewsOfProduct(@PathVariable Integer id, RedirectAttributes redirectAttributes){
-        redirectAttributes.addAttribute("productId", id);
-        return "redirect:/ReviewController";
+    public Page<ReviewDTO> getReviewsOfProduct(@PathVariable Integer id, Pageable pageable){
+        return reviewService.getAllReviews(id, pageable);
     }
 }

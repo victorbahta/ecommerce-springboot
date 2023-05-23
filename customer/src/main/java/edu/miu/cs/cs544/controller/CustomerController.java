@@ -78,12 +78,12 @@ public class CustomerController {
 
 
     /***** Shipping Address api under customer ****/
-    @GetMapping("/{customerId}/shipping-addressee")
+    @GetMapping("/{customerId}/shipping-addresses")
     ResponseEntity<List<ShippingAddressDto>> findShippingAddressAll(@PathVariable Integer customerId) {
         return ResponseEntity.ok(shippingAddressService.findAll(customerId));
     }
 
-    @GetMapping("/{customerId}/shipping-addressee/{shippingId}")
+    @GetMapping("/{customerId}/shipping-addresses/{shippingId}")
     ResponseEntity<ShippingAddressDto> findCreditCardAll(@PathVariable Integer customerId, @PathVariable Integer shippingId) {
         return ResponseEntity.ok(shippingAddressService.findByShippingId(customerId,shippingId));
     }

@@ -42,9 +42,9 @@ public class CustomerController {
     Optional<AddressDto> findAddressById(@PathVariable("customerId") Integer customerId, @PathVariable("addressId") Integer addressId) {
         AddressDto addressDto = new AddressDto();
         addressDto.setId(addressId);
-        addressDto.setLine1("801N 10th Street");
+        addressDto.setStreet("801N 10th Street");
         addressDto.setCity("Fairfield");
-        addressDto.setPostalCode("52556");
+        addressDto.setZip("52556");
         return Optional.of(addressDto);
     }
 }
