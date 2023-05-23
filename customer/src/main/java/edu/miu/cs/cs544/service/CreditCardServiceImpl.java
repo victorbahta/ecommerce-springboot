@@ -40,10 +40,10 @@ public class CreditCardServiceImpl implements CreditCardService {
         return creditCardDtoArrayList;
     }
 
-    public CreditCardDto findAllByCardId(Integer customerId, Integer cardId){
+    public CreditCardDto findByCardId(Integer customerId, Integer cardId){
 
         var creditCard = new CreditCard();
-        creditCard = creditCardRepository.findAllByCardId(customerId, cardId);
+        creditCard = creditCardRepository.findByCardId(customerId, cardId);
         return modelMapper.map(creditCard, CreditCardDto.class);
 
     }

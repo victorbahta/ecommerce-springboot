@@ -26,6 +26,8 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     AuthService authService;
 
+    Boolean isDefaultSetFlag = false;
+
     @Override
     public List<CustomerDto> findAll() {
         var customersDtoList = new ArrayList<CustomerDto>();
@@ -47,13 +49,22 @@ public class CustomerServiceImpl implements CustomerService{
         try {
             var customer = mapDtoToCustomer(customerDto);
 
-            if(customer.getBillingAddress() != null)
+            if (customer.getBillingAddress() != null) {
                 customer.getBillingAddress().setType(AddressType.BILLING);
+            }
 
-            if(customer.getShippingAddress() != null)
+            if (customer.getShippingAddress() != null){
+                isDefaultSetFlag = false;
                 customer.getShippingAddress().forEach(address -> {
+
+                    if (address.isDefault() == true && !isDefaultSetFlag) {
+                        isDefaultSetFlag = true;
+                    } else {
+                        address.setDefault(false);
+                    }
                     address.setType(AddressType.SHIPPING);
                 });
+            }
 
             Customer savedCustomer = customerRepo.save(customer);
 //            log.info("Test {}", savedCustomer);
@@ -75,13 +86,22 @@ public class CustomerServiceImpl implements CustomerService{
             var customer = mapDtoToCustomer(customerDto);
             customer.setId(customerId);
 
-            if(customer.getBillingAddress() != null)
+            if(customer.getBillingAddress() != null) {
                 customer.getBillingAddress().setType(AddressType.BILLING);
+            }
 
-            if(customer.getShippingAddress() != null)
+            if (customer.getShippingAddress() != null){
+                isDefaultSetFlag = false;
                 customer.getShippingAddress().forEach(address -> {
+                    if (address.isDefault() == true && !isDefaultSetFlag) {
+                        isDefaultSetFlag = true;
+                    } else {
+                        address.setDefault(false);
+                    }
                     address.setType(AddressType.SHIPPING);
                 });
+
+            }
 
             Customer savedCustomer = customerRepo.save(customer);
 
