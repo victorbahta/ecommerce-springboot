@@ -1,7 +1,9 @@
 package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.domain.User;
+import edu.miu.cs.cs544.dto.UserDTO;
 import edu.miu.cs.cs544.repository.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,17 +15,17 @@ import java.util.Optional;
 @Transactional
 public class UserService {
     private UserRepository userRepository;
-
+    private ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder){
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper){
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.modelMapper = modelMapper;
     }
-    public void saveUser(User user){
-
+    public void saveUser(UserDTO userDto){
+        User user =modelMapper.map(userDto,User.class);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
         userRepository.save(user);
     }
 

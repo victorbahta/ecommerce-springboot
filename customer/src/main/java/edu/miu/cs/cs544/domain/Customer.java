@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @Data
 @Entity
-public class Customer extends Address {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,9 +29,6 @@ public class Customer extends Address {
     @NotEmpty
     @Email
     private String email;
-
-    @Size(min = 4)
-    private String password;
 
     @JsonProperty
     private boolean isAdmin;
