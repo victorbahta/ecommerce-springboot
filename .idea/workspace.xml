@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/dto/ShippingAddressDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/AddressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/repository/CustomerRepositoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/service/CustomerServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/customer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/customer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CreditCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CreditCardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/CustomerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/CustomerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/CustomerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/repository/CustomerRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/repository/CustomerRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +69,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MIU\EA\Final project\CS544-202305-07\customer\src\test\java\edu\miu\cs\cs544" />
       <recent name="$PROJECT_DIR$/product/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.miu.cs.cs544.service" />
     </key>
   </component>
   <component name="RunManager">
