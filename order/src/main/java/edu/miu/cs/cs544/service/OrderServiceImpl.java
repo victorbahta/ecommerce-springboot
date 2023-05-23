@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
     ModelMapper modelMapper;
 
     @Autowired
-    OrderRepository orderRepository;
+    private OrderRepository orderRepository;
 
     @Autowired
     private Converter<Order, OrderDto> orderConverter;
@@ -26,13 +26,13 @@ public class OrderServiceImpl implements OrderService {
 
     public OrderDto getOrder(Integer orderID) {
         Optional<Order> order = orderRepository.findById(orderID);
-        return order.map(value -> modelMapper.map(value, OrderDto.class)).orElse(null);
+        return order.map(orderConverter::toDto).orElse(null);
 
     }
 
     public Page<OrderDto> getOrders(Integer customerId, Pageable pageable) {
         Page<Order> orders = orderRepository.findByCustomerId(customerId, pageable);
-        return orders.map(order -> modelMapper.map(order, OrderDto.class));
+        return orders.map(orderConverter::toDto);
 
     }
 

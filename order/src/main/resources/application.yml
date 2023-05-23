@@ -19,9 +19,9 @@ spring:
 api-client:
   customer:
     name: customer-service
-    url: http://localhost:8081
+    url: http://localhost:8083
   product:
     name: product-service
-    url: http://localhost:8084
+    url: http://localhost:8083
 #  username: user
 #  password: pass
