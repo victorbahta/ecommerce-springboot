@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 
+import java.util.ArrayList;
+
 @Configuration
 public class ModelMapperConfig {
     @Bean
@@ -19,6 +21,7 @@ public class ModelMapperConfig {
             @Override
             protected void configure() {
                 map().setProductType(ProductType.composite);
+                map().setProducts(new ArrayList<>());
             }
         });
         modelMapper.addMappings(new PropertyMap<IndividualProduct, ProductDTO>() {
@@ -37,11 +40,10 @@ public class ModelMapperConfig {
         modelMapper.addMappings(new PropertyMap<ReviewDTO, Review>() {
             @Override
             protected void configure() {
-                Reviewer reviewer = new Reviewer();
-                reviewer.setId(source.getReviewerId());
-                reviewer.setFirstname(source.getReviewerFirstname());
-                reviewer.setLastname(source.getReviewerLastname());
-                map().setReviewer(reviewer);
+                map();
+                map().getReviewer().setId(source.getReviewerId());
+                map().getReviewer().setFirstname(source.getReviewerFirstname());
+                map().getReviewer().setLastname(source.getReviewerLastname());
             }
         });
         return  modelMapper;

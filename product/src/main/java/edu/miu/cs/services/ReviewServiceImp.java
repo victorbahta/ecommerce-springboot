@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,6 +34,7 @@ public class ReviewServiceImp implements ReviewService{
                 return new ReviewDTO();
             }
             Review review = modelMapper.map(reviewDTO, Review.class);
+            review.setReviewDate(new Date());
             review.setProduct(product);
             return modelMapper.map(reviewRepository.save(review), ReviewDTO.class);
         } catch (Exception e) {
