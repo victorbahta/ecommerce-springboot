@@ -27,7 +27,7 @@ public class CartController {
 
     @Operation(summary = "Create a new cart")
     @PostMapping
-    public CartDto createNewCart(@RequestHeader("customerId") Integer customerId) {
+    public CartDto createNewCart(@RequestHeader("userId") Integer customerId) {
 
         return cartService.createNewCart(customerId);
 
