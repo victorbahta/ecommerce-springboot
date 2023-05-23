@@ -69,7 +69,7 @@ public class OrderController {
 
 
     @PostMapping
-    public OrderResponse placeOrder(@RequestParam("cartId") Integer cartId) {
+    public OrderDto placeOrder(@RequestParam("cartId") Integer cartId) {
         return orderService.placeOrder(cartId);
     }
 }
