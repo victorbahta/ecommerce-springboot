@@ -5,6 +5,7 @@ import edu.miu.cs.dto.ProductDTO;
 import edu.miu.cs.dto.ProductType;
 import edu.miu.cs.dto.ReviewDTO;
 import edu.miu.cs.services.ProductService;
+import edu.miu.cs.services.ReviewService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,8 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ReviewService reviewService;
 
     @GetMapping
     @Transactional
@@ -72,15 +75,13 @@ public class ProductController {
         return new ResponseEntity<Boolean>(res, HttpStatus.OK);
     }
     @PostMapping("/{id}/reviews")
-    public String addReviewToProduct(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO, RedirectAttributes redirectAttributes){
-        redirectAttributes.addAttribute("productId", id);
-        redirectAttributes.addFlashAttribute("reviewDTO", reviewDTO);
-        return "redirect:/ReviewController";
+    public ResponseEntity<?> addReviewToProduct(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO){
+        var res = reviewService.addReview(id, reviewDTO);
+        return new ResponseEntity<ReviewDTO>(res, HttpStatus.OK);
     }
 
     @GetMapping("/{id}/reviews")
-    public String getReviewsOfProduct(@PathVariable Integer id, RedirectAttributes redirectAttributes){
-        redirectAttributes.addAttribute("productId", id);
-        return "redirect:/ReviewController";
+    public Page<ReviewDTO> getReviewsOfProduct(@PathVariable Integer id, Pageable pageable){
+        return reviewService.getAllReviews(id, pageable);
     }
 }
