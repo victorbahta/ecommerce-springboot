@@ -1,13 +1,17 @@
 ###
+# Get all customers
+###
+GET http://localhost:8081/customers
+
+###
 # Get cart
 ###
-GET http://localhost:8081/carts/{{cartId}}
-customerId: 1
+GET http://localhost:8083/carts/{{cartId}}
 
 ###
 # Create a new cart
 ###
-POST http://localhost:8081/carts
+POST http://localhost:8083/carts
 customerId: 1
 
 > {%
@@ -17,29 +21,36 @@ customerId: 1
 ###
 # Add a product to cart
 ###
-POST http://localhost:8081/carts/{{cartId}}/entries?productId=102&quantity=1
-customerId: 1
+POST http://localhost:8083/carts/{{cartId}}/entries?productId=101&quantity=1
+
+> {%
+    client.global.set("entryId", response.body.lineItems[0].id);
+%}
 
 ###
 # Update an entry
 ###
-PUT http://localhost:8081/carts/{{cartId}}/entries?cartEntryId=304&quantity=3
-customerId: 1
+PUT http://localhost:8083/carts/{{cartId}}/entries?cartEntryId={{entryId}}&quantity=3
 
 ###
-# DFelete an entry
+# Delete an entry
 ###
-DELETE http://localhost:8081/carts/{{cartId}}/entries?cartEntryId=202
-customerId: 1
+DELETE http://localhost:8083/carts/{{cartId}}/entries?cartEntryId=202
 
 
 ###
 # Select shipping address
 ###
-POST http://localhost:8081/carts/{{cartId}}/shippingaddress?shippingAddressId=100
+POST http://localhost:8083/carts/{{cartId}}/shipping-address?shippingAddressId=100
 
 ###
 # Update credit card
 ###
-POST http://localhost:8081/carts/{{cartId}}/creditcard?creditCardId=201
+POST http://localhost:8083/carts/{{cartId}}/credit-card?creditCardId=201
+
+
+###
+# Place order
+###
+POST http://localhost:8083/carts/place-order?cartId={{cartId}}
 

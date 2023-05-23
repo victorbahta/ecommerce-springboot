@@ -6,7 +6,7 @@ import lombok.Data;
 public class CartLineItemDto {
     private Integer id;
 
-    private Integer productId;
+    private ProductDto product;
 
     private Integer quantity;
 

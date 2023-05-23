@@ -15,9 +15,8 @@ public class Order extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "orderId")
-    @Transient
     private List<OrderLineItem> lineItems;
 
     @Enumerated(EnumType.STRING)
@@ -37,11 +36,12 @@ public class Order extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "shippingAddressId")
-    @Transient
     private Address shippingAddress;
 
-    private Integer customerId;
+    @ManyToOne
+    @JoinColumn(name = "creditCardId")
+    private CreditCard creditCard;
 
-    private Integer productId;
+    private Integer customerId;
 
 }

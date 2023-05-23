@@ -8,7 +8,6 @@ import lombok.Data;
 @Table(name = "Address")
 public class Address extends BaseEntity {
     @Id
-    @GeneratedValue
     private Integer id;
 
     private String line1;
