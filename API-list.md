@@ -22,4 +22,4 @@
 | Order| localhost:8083/orders/ | POST | | | Place an order
 | Order| localhost:8083/orders/{orderId} | GET | | | Get single order detail
 | Order| localhost:8083/orders/{orderId}/cancel | PUT | | | Cancel an order
-| Order| localhost:8083/orders/{orderId}/return | PUT | | | Return an order
+| Order| localhost:8083/orders/{orderId}/return | PUT | | | Return an order| Order| localhost:8083/orders/{orderId}/cancel | PUT | | | Cancel an order
