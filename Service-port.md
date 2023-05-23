@@ -6,4 +6,4 @@
 | ProductService | 8082 |
 | OrderService | 8083 |
 | EurekaService | 8761 |
-| ConfigurationService | 8761 |
+| ConfigurationService | 8088 |
