@@ -4,7 +4,7 @@ spring:
   main:
     web-application-type: reactive
   datasource:
-    url: jdbc:sqlserver://eafinalproject.database.windows.net:1433;database=authentication;user=victorbahta@eafinalproject;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    url: jdbc:sqlserver://eafinalproject2.database.windows.net:1433;database=authentication;user=tiendm@eafinalproject2;password=Finalproject1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10
@@ -36,8 +36,8 @@ spring:
             - Path= /products/**
 application:
   paths:
-    noAuthentication: GET./orders,GET./carts
-#    requireAdmin:
+    noAuthentication: GET./products$, GET./products/\d+$, GET./products/\d+\/reviews$
+    requireAdmin: POST./products$, POST./products/\d+\/productItem$, PUT./products/\d+$, DELETE./products/\d+$
   security:
     jwt:
       secret-key: 404E635266C56A586E3272357538A82F413F4428472B4B6250D45367566B5970

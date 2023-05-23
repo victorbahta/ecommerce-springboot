@@ -3,7 +3,7 @@ package edu.miu.cs.cs544.contract;
 import lombok.Data;
 
 @Data
-public class CartLineItemDto {
+public class OrderLineItemDto {
     private Integer id;
 
     private ProductDto product;

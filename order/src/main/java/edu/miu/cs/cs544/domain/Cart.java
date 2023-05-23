@@ -25,11 +25,11 @@ public class Cart extends BaseEntity {
 
     private Double total;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "shippingAddressId")
     private Address shippingAddress;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "creditCardId")
     private CreditCard creditCard;
 

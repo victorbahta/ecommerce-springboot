@@ -45,12 +45,7 @@ public class Customer {
     @JoinColumn(name="customerId")
     private Collection<CreditCard> creditCards;
 
-    @Embedded
-    private Audit audit;
-
-
-
-
-
+//    @Embedded
+//    private Audit audit;
 
 }

@@ -6,10 +6,14 @@ import edu.miu.cs.cs544.feign.CustomerServiceFeignClient;
 import edu.miu.cs.cs544.feign.ProductServiceFeignClient;
 import edu.miu.cs.cs544.repository.CartLineItemRepository;
 import edu.miu.cs.cs544.repository.CartRepository;
+import edu.miu.cs.cs544.repository.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.stream.Collectors;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -17,6 +21,9 @@ public class CartServiceImpl implements CartService {
     private static final Logger LOG = LoggerFactory.getLogger(CartServiceImpl.class);
     @Autowired
     private CartRepository cartRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
     @Autowired
     private CartLineItemRepository cartLineItemRepository;
     @Autowired
@@ -25,15 +32,18 @@ public class CartServiceImpl implements CartService {
     private Converter<Product, ProductDto> productConverter;
     @Autowired
     private Converter<CreditCard, CreditCardDto> creditCardConverter;
-
     @Autowired
     private Converter<Address, AddressDto> addressConverter;
-
+    @Autowired
+    private Converter<Order, OrderDto> orderConverter;
     @Autowired
     private CustomerServiceFeignClient customerServiceFeignClient;
-
     @Autowired
     private ProductServiceFeignClient productServiceFeignClient;
+    @Autowired
+    private ShippingCostStrategy shippingCostStrategy;
+    @Autowired
+    private TaxCalculationStrategy taxCalculationStrategy;
 
     @Override
     public CartDto getCart(Integer cartId) {
@@ -53,7 +63,13 @@ public class CartServiceImpl implements CartService {
         Cart cart = new Cart();
         cart.setCustomerId(customerId);
         Cart savedCart = cartRepository.save(cart);
-        return cartConverter.toDto(savedCart);
+        CartDto cartDto = cartConverter.toDto(savedCart);
+        try {
+            customerServiceFeignClient.findCustomerById(customerId).ifPresent(cartDto::setCustomer);
+        } catch (Exception ex) {
+            LOG.error("Cannot call customer service api to get customer for id {}", customerId, ex);
+        }
+        return cartDto;
     }
 
     @Override
@@ -106,6 +122,7 @@ public class CartServiceImpl implements CartService {
         return cartRepository.findById(cartId).map(cart -> {
             try {
                 customerServiceFeignClient.findAddressById(cart.getCustomerId(), shippingAddressId).ifPresent(addr -> {
+                    addr.setAddressType(AddressType.Shipping);
                     cart.setShippingAddress(addressConverter.fromDto(addr));
                 });
             } catch(Exception ex) {
@@ -131,6 +148,43 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public OrderDto placeOrder(Integer cartId) {
-        return null;
+        return cartRepository.findById(cartId).map(cart-> {
+            calculateCart(cart);
+            Order order = copyCartToOrder(cart);
+            cartRepository.delete(cart);
+            return orderRepository.save(order);
+        }).map(orderConverter::toDto).orElse(null);
+    }
+
+    private void calculateCart(Cart cart) {
+        Double subTotal = cart.getLineItems().stream().map(i -> i.getProduct().getPrice() * i.getQuantity()).reduce(0.0, Double::sum);
+        cart.setSubTotal(subTotal);
+        Double shippingCost = shippingCostStrategy.calculateShippingCost(cart);
+        Double taxAmount = taxCalculationStrategy.calculateTax(cart);
+        cart.setShippingCost(shippingCost);
+        cart.setTaxAmount(taxAmount);
+        cart.setTotal(subTotal + shippingCost + taxAmount);
+    }
+
+    private Order copyCartToOrder(Cart cart) {
+//        return modelMapper.map(cart, Order.class);
+        Order order = new Order();
+        order.setCustomerId(cart.getCustomerId());
+        order.setShippingAddress(cart.getShippingAddress());
+        order.setCreditCard(cart.getCreditCard());
+        order.setSubTotal(cart.getSubTotal());
+        order.setShippingCost(cart.getShippingCost());
+        order.setTaxAmount(cart.getTaxAmount());
+        order.setTotal(cart.getTotal());
+        order.setOrderDate(LocalDate.now());
+        order.setStatus(OrderStatus.Placed);
+        order.setLineItems(cart.getLineItems().stream().map(i -> {
+            OrderLineItem lineItem = new OrderLineItem();
+            lineItem.setProduct(i.getProduct());
+            lineItem.setQuantity(i.getQuantity());
+            lineItem.setDiscountValue(i.getDiscountValue());
+            return lineItem;
+        }).collect(Collectors.toList()));
+        return order;
     }
 }
