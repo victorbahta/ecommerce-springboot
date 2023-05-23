@@ -10,18 +10,20 @@ public class Address extends BaseEntity {
     @Id
     private Integer id;
 
-    private String line1;
-
-    private String line2;
+    private String street;
 
     private String city;
 
-    @ManyToOne
-    @JoinColumn(name = "stateProvinceId")
-    private StateProvince stateProvince;
+    private String state;
 
-    private String postalCode;
+    private String zip;
+
+    private Boolean isDefault;
 
     @Enumerated(EnumType.STRING)
-    private AddressType addressType;
+    private AddressType type;
+//    @ManyToOne
+//    @JoinColumn(name = "stateProvinceId")
+//    private StateProvince stateProvince;
+
 }
