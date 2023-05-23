@@ -2,6 +2,7 @@ package edu.miu.cs.cs544.repository;
 
 import edu.miu.cs.cs544.domain.Customer;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -22,10 +23,20 @@ public class CustomerRepositoryTests {
  
     @Autowired
     private CustomerRepository customerRepository;
- 
+
+//    Customer customer;
+//    @BeforeEach
+//    void init() {
+//        customer = new Customer();
+//        customer.setFirstName("Mari");
+//        customer.setLastName("land");
+//        customer.setEmail("test1@gmail.com");
+//        customerRepository.save(customer);
+//        entityManager.flush();
+//    }
+
     @Test
-    @Transactional
-    public void findByAccountHolderById() {
+    public void shouldCreateCustomer() {
         // given
         Customer customer = new Customer();
         customer.setFirstName("Mari");
@@ -33,7 +44,7 @@ public class CustomerRepositoryTests {
         customer.setEmail("test1@gmail.com");
         customerRepository.save(customer);
         entityManager.flush();
-     
+
         // when
         Customer found = customerRepository.findByEmail(customer.getEmail());
      
@@ -47,5 +58,6 @@ public class CustomerRepositoryTests {
         assertThat(customer.getFirstName())
                 .isEqualTo(found.getFirstName());
     }
+
  
 }
