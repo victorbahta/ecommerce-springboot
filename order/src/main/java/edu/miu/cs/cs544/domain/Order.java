@@ -17,7 +17,6 @@ public class Order extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "orderId")
-    @Transient
     private List<OrderLineItem> lineItems;
 
     @Enumerated(EnumType.STRING)
@@ -37,8 +36,11 @@ public class Order extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "shippingAddressId")
-    @Transient
     private Address shippingAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "creditCardId")
+    private CreditCard creditCard;
 
     private Integer customerId;
 

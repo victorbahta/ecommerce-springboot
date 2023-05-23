@@ -11,12 +11,11 @@ public class CartLineItem extends BaseEntity {
     @GeneratedValue
     private Integer id;
 
-    private Integer productId;
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Product product;
 
     private Integer quantity;
 
     private Double discountValue;
-
-    @Embedded
-    private Audit audit;
 }

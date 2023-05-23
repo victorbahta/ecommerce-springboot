@@ -2,6 +2,7 @@ package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.contract.OrderResponse;
 import edu.miu.cs.cs544.domain.Order;
+import edu.miu.cs.cs544.service.CartService;
 import edu.miu.cs.cs544.service.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,4 +35,8 @@ public class OrderController {
 
 
 
+    @PostMapping
+    public OrderResponse placeOrder(@RequestParam("cartId") Integer cartId) {
+        return orderService.placeOrder(cartId);
+    }
 }

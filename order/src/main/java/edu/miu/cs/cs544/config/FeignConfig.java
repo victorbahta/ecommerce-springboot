@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Bean;
 
 public class FeignConfig {
 
-	@Value("${api-client.username}")
-	private String username;
-
-	@Value("${api-client.password}")
-	private String password;
-
-	@Bean
-	BasicAuthRequestInterceptor unityAuthRequestInterceptor() {
-		return new BasicAuthRequestInterceptor(username, password);
-	}
+//	@Value("${api-client.username}")
+//	private String username;
+//
+//	@Value("${api-client.password}")
+//	private String password;
+//
+//	@Bean
+//	BasicAuthRequestInterceptor unityAuthRequestInterceptor() {
+//		return new BasicAuthRequestInterceptor(username, password);
+//	}
 }
