@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -52,10 +53,17 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findById(orderId)
                 .map(o -> {
                     o.setStatus(status);
+                    updateOrderBasedOnStatus(o);
                     return orderRepository.save(o);
                 })
                 .map(orderConverter::toDto)
                 .orElseThrow(() -> new Exception("Cannot find order with id " + orderId));
+    }
+
+    private void updateOrderBasedOnStatus(Order o) {
+        switch (o.getStatus()) {
+            case Delivered -> o.setDeliveryDate(LocalDate.now());
+        }
     }
 
 

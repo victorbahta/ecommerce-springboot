@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,7 +31,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Change order status")
-    @PostMapping("/{orderId}/status")
+    @PostMapping("/{orderId}/change-status")
     public OrderDto changeStatus(@PathVariable("orderId") Integer orderId,
             @RequestParam("status") String status) throws Exception {
         return orderService.changeStatus(orderId, OrderStatus.valueOf(status));
