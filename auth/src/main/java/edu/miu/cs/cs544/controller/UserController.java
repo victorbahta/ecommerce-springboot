@@ -2,6 +2,7 @@ package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.domain.User;
 import edu.miu.cs.cs544.dto.CustomErrorType;
+import edu.miu.cs.cs544.dto.UserDTO;
 import edu.miu.cs.cs544.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,16 +20,16 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<?> saveUser(@RequestBody User user){
-        Optional<User> optUser = userService.findByEmail(user.getEmail());
+    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDto){
+        Optional<User> optUser = userService.findByEmail(userDto.getEmail());
         if(optUser.isPresent()){
             User userInDB = optUser.get();
-            if(!userInDB.getId().equals(user.getId())) {
-                return new ResponseEntity<CustomErrorType>(new CustomErrorType("Email " + user.getEmail() + " already exist with different Id"), HttpStatus.BAD_REQUEST);
+            if(!userInDB.getId().equals(userDto.getId())) {
+                return new ResponseEntity<CustomErrorType>(new CustomErrorType("Email " + userDto.getEmail() + " already exist with different Id"), HttpStatus.BAD_REQUEST);
             }
         }
 
-        userService.saveUser(user);
+        userService.saveUser(userDto);
         return ResponseEntity.ok().build();
     }
 
