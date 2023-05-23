@@ -27,6 +27,10 @@ public class JwtService {
     return extractClaim(token, Claims::getSubject);
   }
 
+  public String extractUserId(String token) {
+    return extractClaim(token, Claims::getSubject);
+  }
+
   public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
     final Claims claims = extractAllClaims(token);
     return claimsResolver.apply(claims);
@@ -35,6 +39,7 @@ public class JwtService {
   public String generateToken(User user) {
     Map<String, Object> map = new HashMap<>();
     map.put("userId", user.getId());
+    map.put("admin", user.isAdmin());
     return buildToken(map, user, jwtExpiration);
   }
 
@@ -53,12 +58,16 @@ public class JwtService {
             .compact();
   }
 
-  public boolean isTokenValid(String token, User user) {
-    final String username = extractEmail(token);
-    return (username.equals(user.getEmail())) && !isTokenExpired(token);
+  public boolean isTokenValid(String token) {
+    try {
+      extractEmail(token);
+    }catch (Exception e){
+      return false;
+    }
+    return !isTokenExpired(token);
   }
 
-  private boolean isTokenExpired(String token) {
+  public boolean isTokenExpired(String token) {
     return extractExpiration(token).before(new Date());
   }
 
@@ -66,7 +75,7 @@ public class JwtService {
     return extractClaim(token, Claims::getExpiration);
   }
 
-  private Claims extractAllClaims(String token) {
+  public Claims extractAllClaims(String token) {
     return Jwts
         .parserBuilder()
         .setSigningKey(getSignInKey())

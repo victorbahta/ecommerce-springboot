@@ -1,28 +1,20 @@
-package edu.miu.cs.cs544.domain;
+package edu.miu.cs.cs544.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="UserCredentials")
-public class User {
-    @Id
+public class UserDTO {
     private Integer id;
     private String email;
     private String password;
     private boolean admin;
 
-    public User(Integer id, String email, String password, boolean admin) {
+    public UserDTO(Integer id, String email, String password, boolean admin) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.admin = admin;
     }
 
-    public User() {
-
+    public UserDTO() {
+        
     }
 
     public Integer getId() {

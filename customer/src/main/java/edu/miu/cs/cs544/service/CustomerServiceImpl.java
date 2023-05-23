@@ -2,7 +2,9 @@ package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.domain.Customer;
 import edu.miu.cs.cs544.domain.address.AddressType;
+import edu.miu.cs.cs544.dto.CustomerCredentialDto;
 import edu.miu.cs.cs544.dto.CustomerDto;
+import edu.miu.cs.cs544.feign.AuthService;
 import edu.miu.cs.cs544.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -18,9 +20,11 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
     private CustomerRepository customerRepo;
-
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    AuthService authService;
 
     @Override
     public List<CustomerDto> findAll() {
@@ -42,13 +46,28 @@ public class CustomerServiceImpl implements CustomerService{
 
         try {
             var customer = mapDtoToCustomer(customerDto);
-            customer.getBillingAddress().setType(AddressType.BILLING);
-            customer.getShippingAddress().forEach(address -> {
-                address.setType(AddressType.SHIPPING);
-            });
 
-            customerRepo.save(customer);
+            if(customer.getBillingAddress() != null)
+                customer.getBillingAddress().setType(AddressType.BILLING);
+
+            if(customer.getShippingAddress() != null)
+                customer.getShippingAddress().forEach(address -> {
+                    address.setType(AddressType.SHIPPING);
+                });
+
+            Customer savedCustomer = customerRepo.save(customer);
+            log.info("Test {}", savedCustomer);
+
+            /*** Calling to auth service to save the user credential ***/
+            CustomerCredentialDto customerCredentialDto = new CustomerCredentialDto();
+            customerCredentialDto.setId(savedCustomer.getId());
+            customerCredentialDto.setEmail(savedCustomer.getEmail());
+            customerCredentialDto.setPassword(customerDto.getPassword());
+            customerCredentialDto.setAdmin(savedCustomer.isAdmin());
+            authService.saveCredential(customerCredentialDto);
+
             return true;
+
         }catch (Exception ex){
             log.error(ex.getMessage());
             return false;
@@ -60,10 +79,15 @@ public class CustomerServiceImpl implements CustomerService{
         try {
             var customer = mapDtoToCustomer(customerDto);
             customer.setId(customerId);
-            customer.getBillingAddress().setType(AddressType.BILLING);
-            customer.getShippingAddress().forEach(address -> {
-                address.setType(AddressType.SHIPPING);
-            });
+
+            if(customer.getBillingAddress() != null)
+                customer.getBillingAddress().setType(AddressType.BILLING);
+
+            if(customer.getShippingAddress() != null)
+                customer.getShippingAddress().forEach(address -> {
+                    address.setType(AddressType.SHIPPING);
+                });
+
             customerRepo.save(customer);
             return true;
         }catch (Exception ex){
