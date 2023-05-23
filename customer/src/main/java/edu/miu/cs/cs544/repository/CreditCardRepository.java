@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface CreditCardRepository extends JpaRepository<CreditCard, Integer> {
 
     @Query("SELECT cc FROM  Customer c JOIN c.creditCards cc WHERE c.id =:customerId AND  cc.id = :cardId")
-    public CreditCard findAllByCardId(Integer customerId, Integer cardId);
+    public CreditCard findByCardId(Integer customerId, Integer cardId);
 }

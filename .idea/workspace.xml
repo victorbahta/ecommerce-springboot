@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/dto/ShippingAddressDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/AddressRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/repository/CustomerRepositoryTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/customer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/customer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/domain/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CreditCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CreditCardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/CreditCardServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/CustomerApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,29 +59,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/salmdo/EA/CS544-202305-07/product/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/MIU/EA/Final project/CS544-202305-07/customer/src/test/java/edu/miu/cs/cs544",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MIU\EA\Final project\CS544-202305-07\customer\src\test\java\edu\miu\cs\cs544" />
       <recent name="$PROJECT_DIR$/product/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductService">
+  <component name="RunManager">
+    <configuration name="CustomerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.miu.cs.cs544.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.miu.cs.cs544" />
+      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.CustomerApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Eureka" />
       <method v="2">
@@ -118,12 +147,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.CustomerApplicationTests" />
       <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Spring Boot.ProductService" />
       <item itemvalue="Spring Boot.AuthApplication" />
       <item itemvalue="Spring Boot.CustomerApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CustomerApplicationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
