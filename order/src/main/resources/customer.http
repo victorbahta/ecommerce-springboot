@@ -1,5 +1,0 @@
-###
-# Get customers
-###
-GET http://localhost:8081/customers
-customerId: 1

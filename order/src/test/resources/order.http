@@ -1,0 +1,36 @@
+###
+# Get all orders paged with size of 20
+###
+GET http://localhost:8083/orders
+Authorization: Bearer {{token}}
+customerId: 1
+
+> {%
+    client.global.set("orderId", response.body.content[0].id);
+%}
+
+###
+# Get a single order by id
+###
+GET http://localhost:8083/orders/{{orderId}}
+Authorization: Bearer {{token}}
+
+###
+# Change status to `Processed`
+###
+POST http://localhost:8083/orders/{{orderId}}/change-status?status=Processed
+Authorization: Bearer {{token}}
+
+###
+# Delivery to customer
+###
+POST http://localhost:8083/orders/{{orderId}}/change-status?status=Delivered
+Authorization: Bearer {{token}}
+
+###
+# Customer return order
+###
+POST http://localhost:8083/orders/{{orderId}}/return
+Authorization: Bearer {{token}}
+
+

@@ -1,0 +1,11 @@
+###
+# Get all customers, then get the 1st customer in the list to place order
+# Get his 1st shipping address and 1st credit card and assign to variables to be used in cart.http
+###
+GET http://localhost:8099/customers
+Authorization: Bearer {{token}}
+
+> {%
+    client.global.set("creditCardId", response.body[0].creditCards[0].id);
+    client.global.set("shippingAddressId", response.body[0].shippingAddress[0].id);
+%}

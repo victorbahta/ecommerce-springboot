@@ -1,5 +1,6 @@
 package edu.miu.cs.services;
 
+import edu.miu.cs.domains.CompositeProduct;
 import edu.miu.cs.dto.ProductDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

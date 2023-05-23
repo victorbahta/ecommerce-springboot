@@ -122,7 +122,7 @@ public class CartServiceImpl implements CartService {
         return cartRepository.findById(cartId).map(cart -> {
             try {
                 customerServiceFeignClient.findAddressById(cart.getCustomerId(), shippingAddressId).ifPresent(addr -> {
-                    addr.setAddressType(AddressType.Shipping);
+                    addr.setType(AddressType.SHIPPING);
                     cart.setShippingAddress(addressConverter.fromDto(addr));
                 });
             } catch(Exception ex) {
@@ -157,7 +157,7 @@ public class CartServiceImpl implements CartService {
     }
 
     private void calculateCart(Cart cart) {
-        Double subTotal = cart.getLineItems().stream().map(i -> i.getProduct().getPrice() * i.getQuantity()).reduce(0.0, Double::sum);
+        Double subTotal = cart.getLineItems().stream().filter(i -> i.getProduct() != null).map(i -> i.getProduct().getPrice() * i.getQuantity()).reduce(0.0, Double::sum);
         cart.setSubTotal(subTotal);
         Double shippingCost = shippingCostStrategy.calculateShippingCost(cart);
         Double taxAmount = taxCalculationStrategy.calculateTax(cart);
