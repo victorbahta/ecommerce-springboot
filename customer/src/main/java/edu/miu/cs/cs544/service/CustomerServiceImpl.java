@@ -46,6 +46,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public boolean addNewCustomer(CustomerDto customerDto) {
 
+        log.info(" {}", customerDto);
         try {
             var customer = mapDtoToCustomer(customerDto);
 
@@ -129,7 +130,8 @@ public class CustomerServiceImpl implements CustomerService{
         customerCredentialDto.setId(savedCustomer.getId());
         customerCredentialDto.setEmail(savedCustomer.getEmail());
         customerCredentialDto.setPassword(customerDto.getPassword());
-        customerCredentialDto.setAdmin(savedCustomer.isAdmin());
+        customerCredentialDto.setAdmin(savedCustomer.getIsAdmin());
+        log.info("{}", customerCredentialDto);
         authService.saveCredential(customerCredentialDto);
 
     }
