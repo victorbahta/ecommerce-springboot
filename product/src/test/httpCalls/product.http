@@ -36,7 +36,7 @@ Content-Type: application/json
 ###
 # Add product item a composite product
 ###
-POST http://localhost:8080/products/152/productItem
+POST http://localhost:8080/products/402/productItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -50,19 +50,23 @@ Content-Type: application/json
   "discountAmount": 0
 ,"productType": "composite"
 }
+###
+# Get product details
+###
+GET http://localhost:8080/products/402
 
 ###
 # Update a product
 ###
-PUT http://localhost:8080/products/303
+PUT http://localhost:8080/products/402
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "id": 303,
+  "id": 402,
   "productId": "001",
-  "name": "Product 2 Up",
-  "description": "Product 2 Up",
+  "name": "Product 2 Updated",
+  "description": "Product 2 Updated",
   "price": 12.07,
   "barcodeNumber": "0000111",
   "stock": 3,

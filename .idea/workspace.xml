@@ -7,14 +7,8 @@
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/domains/ComponentProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ProductServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/test/httpCalls/auth.http" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/httpCalls/auth.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/test/httpCalls/product.http" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/httpCalls/product.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/test/httpCalls/review.http" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/httpCalls/review.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,20 +81,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductService">
-    <configuration name="auth | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/auth.http" requestIdentifier="#1" runType="Run single request">
+  <component name="RunManager" selected="HTTP Request.product | #4">
+    <configuration name="product | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="product | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="product | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="product | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="4" requestIdentifier="#4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="product | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="6" requestIdentifier="#6" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="product | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="7" requestIdentifier="#7" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="review | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/review.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="product | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="5" requestIdentifier="#5" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -159,11 +153,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.auth | #1" />
+      <item itemvalue="HTTP Request.product | #1" />
+      <item itemvalue="HTTP Request.product | #2" />
+      <item itemvalue="HTTP Request.product | #3" />
       <item itemvalue="HTTP Request.product | #4" />
-      <item itemvalue="HTTP Request.product | #6" />
-      <item itemvalue="HTTP Request.product | #7" />
-      <item itemvalue="HTTP Request.review | #1" />
+      <item itemvalue="HTTP Request.product | #5" />
       <item itemvalue="Spring Boot.ConfigServiceApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.ProductService" />
@@ -173,11 +167,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.product | #7" />
         <item itemvalue="HTTP Request.product | #4" />
-        <item itemvalue="HTTP Request.product | #6" />
-        <item itemvalue="HTTP Request.auth | #1" />
-        <item itemvalue="HTTP Request.review | #1" />
+        <item itemvalue="HTTP Request.product | #5" />
+        <item itemvalue="HTTP Request.product | #3" />
+        <item itemvalue="HTTP Request.product | #2" />
+        <item itemvalue="HTTP Request.product | #1" />
       </list>
     </recent_temporary>
   </component>
