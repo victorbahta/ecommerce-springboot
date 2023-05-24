@@ -72,8 +72,8 @@ public class TestReviewService {
         // Mock the behavior of the repository to save the review
         when(componentProductRepository.getReferenceById(product1.getId())).thenReturn(product1);
         when(orderService.checkProductOrderedByCustomer(reviewer.getId(), review.getOrderId(), product1.getId())).thenReturn(Optional.of(true));
-        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(50, 10, 30)).thenReturn(Optional.empty());
-//        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(product.getId(), review.getOrderId(), reviewer.getId())).thenReturn(Optional.empty());
+//        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(50, 10, 30)).thenReturn(Optional.empty());
+        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(product1.getId(), review.getOrderId(), reviewer.getId())).thenReturn(Optional.empty());
         when(customerService.getCustomerById(reviewer.getId())).thenReturn(customerDTO);
         when(modelMapper.map(reviewDTO, Review.class)).thenReturn(review);
         when(reviewRepository.save(review)).thenReturn(review);
