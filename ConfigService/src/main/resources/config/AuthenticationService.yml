@@ -36,8 +36,8 @@ spring:
             - Path= /products/**
 application:
   paths:
-    noAuthentication: GET./products$, GET./products/\d+$, GET./products/\d+\/reviews$
-    requireAdmin: POST./products$, POST./products/\d+\/productItem$, PUT./products/\d+$, DELETE./products/\d+$
+    noAuthentication: GET./products$, GET./products/\d+$, GET./products/\d+\/reviews$, POST./customers$
+    requireAdmin: POST./products$, POST./products/\d+\/productItem$, PUT./products/\d+$, DELETE./products/\d+$, GET./customers$
   security:
     jwt:
       secret-key: 404E635266C56A586E3272357538A82F413F4428472B4B6250D45367566B5970

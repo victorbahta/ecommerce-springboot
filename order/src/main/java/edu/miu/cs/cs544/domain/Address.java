@@ -22,8 +22,4 @@ public class Address extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private AddressType type;
-//    @ManyToOne
-//    @JoinColumn(name = "stateProvinceId")
-//    private StateProvince stateProvince;
-
 }

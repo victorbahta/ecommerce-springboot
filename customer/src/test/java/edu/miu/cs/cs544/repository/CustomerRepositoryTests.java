@@ -42,7 +42,7 @@ public class CustomerRepositoryTests {
         customer.setFirstName("Mari");
         customer.setLastName("land");
         customer.setEmail("test1@gmail.com");
-        customerRepository.save(customer);
+        entityManager.persist(customer);
         entityManager.flush();
 
         // when

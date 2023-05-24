@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,7 +18,7 @@ public class Order extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "orderId")
-    private List<OrderLineItem> lineItems;
+    private List<OrderLineItem> lineItems = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
