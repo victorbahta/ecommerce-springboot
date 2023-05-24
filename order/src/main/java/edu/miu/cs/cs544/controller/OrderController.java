@@ -49,7 +49,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Return an order")
-    @PutMapping("/{orderId}/return")
+    @PostMapping("/{orderId}/return")
     public OrderDto returnOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.returnOrder(orderId);
@@ -60,7 +60,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Cancel an order")
-    @PutMapping("/{orderId}/cancel")
+    @PostMapping("/{orderId}/cancel")
     public OrderDto cancelOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.cancelOrder(orderId);

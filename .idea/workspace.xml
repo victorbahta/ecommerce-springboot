@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/product/src/test/httpCalls/auth.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/test/httpCalls/product.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/test/httpCalls/review.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/feign/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/feign/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/java/edu/miu/cs/cs544/TestReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/customer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +35,6 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2QAXEFQuqDTyrlZLvTWHAvhW0Q4" />
   <component name="ProjectLevelVcsManager">
@@ -63,20 +53,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/salmdo/EA/CS544-202305-07/product/src/test/httpCalls",
+    "last_opened_file_path": "D:/MIU/EA/Final project/Demo/CS544-202305-07",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/product/src/test/httpCalls" />
       <recent name="D:\MIU\EA\Final project\CS544-202305-07\customer\src\test\java\edu\miu\cs\cs544" />
       <recent name="$PROJECT_DIR$/product/src/main/resources" />
     </key>
@@ -91,12 +78,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestReviewService.whenAddReviewThenShouldGetNewReview">
-    <configuration name="product | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/product/src/test/httpCalls/product.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="TestReviewRepository" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product" />
+  <component name="RunManager">
+    <configuration name="CustomerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customer" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.miu.cs.cs544.*" />
@@ -104,55 +88,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.miu.cs.cs544" />
-      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.TestReviewRepository" />
+      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.CustomerApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestReviewRepository.whenFindReviewsByProduct_thenReturnReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.miu.cs.cs544.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.miu.cs.cs544" />
-      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.TestReviewRepository" />
-      <option name="METHOD_NAME" value="whenFindReviewsByProduct_thenReturnReview" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestReviewService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.miu.cs.cs544.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.miu.cs.cs544" />
-      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.TestReviewService" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestReviewService.whenAddReviewThenShouldGetNewReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.miu.cs.cs544.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.miu.cs.cs544" />
-      <option name="MAIN_CLASS_NAME" value="edu.miu.cs.cs544.TestReviewService" />
-      <option name="METHOD_NAME" value="whenAddReviewThenShouldGetNewReview" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,11 +150,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.product | #2" />
-      <item itemvalue="JUnit.TestReviewRepository" />
-      <item itemvalue="JUnit.TestReviewRepository.whenFindReviewsByProduct_thenReturnReview" />
-      <item itemvalue="JUnit.TestReviewService" />
-      <item itemvalue="JUnit.TestReviewService.whenAddReviewThenShouldGetNewReview" />
+      <item itemvalue="JUnit.CustomerApplicationTests" />
       <item itemvalue="Spring Boot.ConfigServiceApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.ProductService" />
@@ -227,11 +160,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestReviewService.whenAddReviewThenShouldGetNewReview" />
-        <item itemvalue="JUnit.TestReviewService" />
-        <item itemvalue="JUnit.TestReviewRepository.whenFindReviewsByProduct_thenReturnReview" />
-        <item itemvalue="JUnit.TestReviewRepository" />
-        <item itemvalue="HTTP Request.product | #2" />
+        <item itemvalue="JUnit.CustomerApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -244,6 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1684797245420</updated>
       <workItem from="1684797246553" duration="11549000" />
+      <workItem from="1684942436515" duration="1283000" />
     </task>
     <servers />
   </component>
@@ -260,16 +190,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/product/src/main/java/edu/miu/cs/services/ReviewServiceImp.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
