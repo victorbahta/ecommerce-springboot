@@ -16,6 +16,7 @@ public class ReviewDTO {
     private int numberOfStar;
     private Date reviewDate;
     private int reviewerId;
+    private int orderId;
     private String reviewerFirstname;
     private String reviewerLastname;
 }

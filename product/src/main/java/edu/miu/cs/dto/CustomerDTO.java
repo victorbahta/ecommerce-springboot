@@ -3,11 +3,9 @@ package edu.miu.cs.dto;
 import lombok.Data;
 import lombok.ToString;
 
-import java.util.Collection;
-
 @Data
 @ToString
-public class CustomerDto {
+public class CustomerDTO {
     private Integer id;
     private String firstName;
     private String lastName;
