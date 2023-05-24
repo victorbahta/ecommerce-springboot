@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient("ORDERSERVICE")
 public interface OrderService {
     @GetMapping(value = "/orders/{customerId}")
-    public CustomerDto checkProductOrderedByCustomer(@PathVariable Integer customerId);
+    public Boolean checkProductOrderedByCustomer(@PathVariable Integer customerId);
 }
