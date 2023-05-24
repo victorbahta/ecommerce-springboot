@@ -1,9 +1,8 @@
 ###
 # Get all orders paged with size of 20
 ###
-GET http://localhost:8083/orders
+GET http://localhost:8085/orders
 Authorization: Bearer {{token}}
-customerId: 1
 
 > {%
     client.global.set("orderId", response.body.content[0].id);
