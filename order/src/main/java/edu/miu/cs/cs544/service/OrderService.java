@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 public interface OrderService {
     Page<OrderDto> getOrders(Integer customerId, Pageable size);
 
+    Boolean getOrdersContainsProduct(Integer customerId, Integer orderId, Integer productId);
+
     OrderDto getOrder(Integer orderId);
 
     OrderDto changeStatus(Integer orderId, OrderStatus status) throws Exception;

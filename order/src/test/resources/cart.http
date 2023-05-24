@@ -1,9 +1,8 @@
 ###
 # Create a new cart
 ###
-POST http://localhost:8099/carts
+POST http://localhost:8085/carts
 Authorization: Bearer {{token}}
-userId: 1
 
 > {%
     client.global.set("cartId", response.body.id);
@@ -12,13 +11,13 @@ userId: 1
 ###
 # Get the newly created cart
 ###
-GET http://localhost:8099/carts/{{cartId}}
+GET http://localhost:8085/carts/{{cartId}}
 Authorization: Bearer {{token}}
 
 ###
 # Add 1st product to cart -> 1st entry
 ###
-POST http://localhost:8099/carts/{{cartId}}/entries?productId={{productId}}&quantity=1
+POST http://localhost:8085/carts/{{cartId}}/entries?productId={{productId}}&quantity=1
 Authorization: Bearer {{token}}
 
 > {%
@@ -28,7 +27,7 @@ Authorization: Bearer {{token}}
 ###
 # Add 2nd product to cart -> 2nd entry
 ###
-POST http://localhost:8099/carts/{{cartId}}/entries?productId={{productId2}}&quantity=1
+POST http://localhost:8085/carts/{{cartId}}/entries?productId={{productId2}}&quantity=1
 Authorization: Bearer {{token}}
 
 > {%
@@ -38,29 +37,29 @@ Authorization: Bearer {{token}}
 ###
 # Update quantity of 1st entry
 ###
-PUT http://localhost:8099/carts/{{cartId}}/entries?cartEntryId={{entryId}}&quantity=3
+PUT http://localhost:8085/carts/{{cartId}}/entries?cartEntryId={{entryId}}&quantity=3
 Authorization: Bearer {{token}}
 
 ###
 # Delete 2nd entry
 ###
-DELETE http://localhost:8099/carts/{{cartId}}/entries?cartEntryId={{entryId2}}
+DELETE http://localhost:8085/carts/{{cartId}}/entries?cartEntryId={{entryId2}}
 Authorization: Bearer {{token}}
 
 ###
 # Select shipping address
 ###
-POST http://localhost:8099/carts/{{cartId}}/shipping-address?shippingAddressId={{shippingAddressId}}
+POST http://localhost:8085/carts/{{cartId}}/shipping-address?shippingAddressId={{shippingAddressId}}
 Authorization: Bearer {{token}}
 
 ###
 # Update credit card
 ###
-POST http://localhost:8099/carts/{{cartId}}/credit-card?creditCardId={{creditCardId}}
+POST http://localhost:8085/carts/{{cartId}}/credit-card?creditCardId={{creditCardId}}
 Authorization: Bearer {{token}}
 
 ###
 # Place order
 ###
-POST http://localhost:8099/carts/place-order?cartId={{cartId}}
+POST http://localhost:8085/carts/place-order?cartId={{cartId}}
 Authorization: Bearer {{token}}

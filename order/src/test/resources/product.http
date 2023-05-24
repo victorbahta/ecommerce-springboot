@@ -1,7 +1,7 @@
 ###
 # Get all products
 ###
-GET http://localhost:8099/customers
+GET http://localhost:8085/products
 Authorization: Bearer {{token}}
 
 > {%

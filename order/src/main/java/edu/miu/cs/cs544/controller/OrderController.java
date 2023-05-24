@@ -23,7 +23,7 @@ public class OrderController {
 
     @Operation(summary = "Get all orders of a customer")
     @GetMapping
-    public Page<OrderDto> getOrders(@RequestHeader("customerId") Integer customerId) {
+    public Page<OrderDto> getOrders(@RequestHeader("userId") Integer customerId) {
         return orderService.getOrders(customerId, Pageable.ofSize(20));
     }
 
@@ -68,5 +68,13 @@ public class OrderController {
             log.info(e.getMessage());
             return null;
         }
+    }
+
+    @Operation(summary = "Return whether customer places any order with productId")
+    @GetMapping("/verified")
+    public Boolean getOrdersContainsProduct(@RequestParam("customerId") Integer customerId,
+                                            @RequestParam("orderId") Integer orderId,
+                                            @RequestParam("productId") Integer productId) {
+        return orderService.getOrdersContainsProduct(customerId, orderId, productId);
     }
 }
