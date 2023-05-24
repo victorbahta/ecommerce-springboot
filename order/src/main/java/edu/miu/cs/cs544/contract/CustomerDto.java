@@ -9,7 +9,4 @@ public class CustomerDto {
     private String lastName;
     private String email;
     private boolean isAdmin;
-//    private Address billingAddress;
-//    private Collection<Address> shippingAddress;
-//    private Collection<CreditCard> creditCards;
 }
