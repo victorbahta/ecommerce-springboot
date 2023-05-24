@@ -1,0 +1,24 @@
+###
+# Create a new cart
+###
+POST http://localhost:8080/products/52/reviews
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Review 1",
+  "description": "description 1",
+  "numberOfStar": 3
+}
+
+###
+# Get all reviews of a product
+###
+GET http://localhost:8080/products/2/reviews
+Content-Type: application/json
+
+{
+  "title": "Review 1",
+  "description": "description 1",
+  "numberOfStar": 3
+}

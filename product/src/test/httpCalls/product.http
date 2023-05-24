@@ -1,0 +1,71 @@
+###
+# Create a new product
+###
+POST http://localhost:8080/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product 2",
+  "description": "Product 2",
+  "double": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 0
+,"productType": "composite"
+}
+
+###
+# Add product item a composite product
+###
+POST http://localhost:8080/products/2/productItem
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product Item",
+  "description": "Product Item",
+  "double": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 0
+,"productType": "composite"
+}
+
+###
+# Update a product
+###
+PUT http://localhost:8080/products/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product 2 Updated",
+  "description": "Product 2 Updated",
+  "double": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 0,
+  "productType": "composite"
+}
+
+###
+# Delete a product
+###
+DELETE http://localhost:8080/products/1
+Authorization: Bearer {{token}}
+
+
+###
+# Get all products
+###
+DELETE http://localhost:8080/products
+
+
+###
+# Get product details
+###
+DELETE http://localhost:8080/products/1
