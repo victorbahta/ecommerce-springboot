@@ -9,21 +9,21 @@ import edu.miu.cs.repositories.ComponentProductRepository;
 import edu.miu.cs.repositories.CompositeProductRepository;
 import edu.miu.cs.repositories.IndividualProductRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.NonUniqueObjectException;
-import org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class ProductServiceImp implements ProductService {
    @Autowired
    private ComponentProductRepository componentProductRepository;
@@ -45,7 +45,8 @@ public class ProductServiceImp implements ProductService {
             var resultDTO = modelMapper.map(result, ProductDTO.class);
             return resultDTO;
         } catch (Exception e){
-            return null;
+           log.error("Can not add products");
+           return null;
         }
     }
 
@@ -85,6 +86,7 @@ public class ProductServiceImp implements ProductService {
 
                return modelMapper.map(componentProductRepository.save(productFromId), ProductDTO.class);
            } else {
+               log.debug("addProductItem - Could not find the product by id");
                return null;
            }
        } catch (Exception e) {
@@ -157,6 +159,7 @@ public class ProductServiceImp implements ProductService {
                     return response;
                 }
             } else {
+                log.debug("getById - Could not find the product by id");
                 return null;
             }
 
