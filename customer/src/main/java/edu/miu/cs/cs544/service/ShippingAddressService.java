@@ -11,4 +11,7 @@ public interface ShippingAddressService {
 
     public List<ShippingAddressDto> findAll(Integer customerId);
     public ShippingAddressDto findByShippingId(Integer customerId, Integer shippingId);
+
+    public boolean addNewShippingAddress(Integer customerId, ShippingAddressDto shippingAddressDto);
+
 }
