@@ -2,7 +2,6 @@ package edu.miu.cs.cs544.controller;
 
 import edu.miu.cs.cs544.contract.CartDto;
 import edu.miu.cs.cs544.contract.OrderDto;
-import edu.miu.cs.cs544.feign.CustomerServiceFeignClient;
 import edu.miu.cs.cs544.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +18,7 @@ public class CartController {
 
     @Operation(summary = "Get a cart")
     @GetMapping("/{cartId}")
-    public CartDto getCart(@PathVariable("cartId") Integer cartId) {
+    public CartDto getCart(@PathVariable("cartId") Integer cartId) throws Exception {
 
         return cartService.getCart(cartId);
 
@@ -78,7 +77,7 @@ public class CartController {
 
     @Operation(summary = "Place an order")
     @PostMapping("/place-order")
-    public OrderDto placeOrder(@RequestParam("cartId") Integer cartId) {
+    public OrderDto placeOrder(@RequestParam("cartId") Integer cartId) throws Exception {
         return cartService.placeOrder(cartId);
     }
 }

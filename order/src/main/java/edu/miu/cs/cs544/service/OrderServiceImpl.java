@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -24,25 +25,23 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private Converter<Order, OrderDto> orderConverter;
 
-
     public OrderDto getOrder(Integer orderID) {
         Optional<Order> order = orderRepository.findById(orderID);
         return order.map(orderConverter::toDto).orElse(null);
-
     }
 
     public Page<OrderDto> getOrders(Integer customerId, Pageable pageable) {
         Page<Order> orders = orderRepository.findByCustomerId(customerId, pageable);
         return orders.map(orderConverter::toDto);
-
     }
 
-
+    @Override
+    public Boolean getOrdersContainsProduct(Integer customerId, Integer orderId, Integer productId) {
+        return orderRepository.findByCustomerAndContainsProduct(customerId, orderId, productId) != null;
+    }
 
     public OrderDto returnOrder(Integer orderId) throws Exception {
         return changeStatus(orderId, OrderStatus.Returned);
-
-
     }
 
     public OrderDto cancelOrder(Integer orderId) throws Exception {
@@ -61,10 +60,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void updateOrderBasedOnStatus(Order o) {
-        switch (o.getStatus()) {
-            case Delivered -> o.setDeliveryDate(LocalDate.now());
+        if (Objects.requireNonNull(o.getStatus()) == OrderStatus.Delivered) {
+            o.setDeliveryDate(LocalDate.now());
         }
     }
-
-
 }

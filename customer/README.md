@@ -24,12 +24,12 @@ Update customer
 
 Fetch all shipping address for a specific customer
 ```bash
-[GET] http://localhost:8081/customers/{customerId}/shipping-addressee
+[GET] http://localhost:8081/customers/{customerId}/shipping-addresses
 ```
 
 Fetch shipping address by shipping id for a specific customer
 ```bash
-[GET] http://localhost:8081/customers/{customerId}/shipping-addressee/{shppingId}
+[GET] http://localhost:8081/customers/{customerId}/shipping-addresses/{shppingId}
 ```
 
 ### Credit card API end
@@ -88,3 +88,6 @@ Fetch shipping address by shipping id for a specific customer
     ]
 }
 ```
+
+## Class diagram of customer
+![img.png](img.png)

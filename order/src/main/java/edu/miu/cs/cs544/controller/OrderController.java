@@ -23,7 +23,7 @@ public class OrderController {
 
     @Operation(summary = "Get all orders of a customer")
     @GetMapping
-    public Page<OrderDto> getOrders(@RequestHeader("customerId") Integer customerId) {
+    public Page<OrderDto> getOrders(@RequestHeader("userId") Integer customerId) {
         return orderService.getOrders(customerId, Pageable.ofSize(20));
     }
 
@@ -49,7 +49,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Return an order")
-    @PutMapping("/{orderId}/return")
+    @PostMapping("/{orderId}/return")
     public OrderDto returnOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.returnOrder(orderId);
@@ -60,7 +60,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Cancel an order")
-    @PutMapping("/{orderId}/cancel")
+    @PostMapping("/{orderId}/cancel")
     public OrderDto cancelOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.cancelOrder(orderId);
@@ -68,5 +68,13 @@ public class OrderController {
             log.info(e.getMessage());
             return null;
         }
+    }
+
+    @Operation(summary = "Return whether customer places any order with productId")
+    @GetMapping("/verified")
+    public Boolean getOrdersContainsProduct(@RequestParam("customerId") Integer customerId,
+                                            @RequestParam("orderId") Integer orderId,
+                                            @RequestParam("productId") Integer productId) {
+        return orderService.getOrdersContainsProduct(customerId, orderId, productId);
     }
 }

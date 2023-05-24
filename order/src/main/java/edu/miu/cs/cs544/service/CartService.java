@@ -4,7 +4,7 @@ import edu.miu.cs.cs544.contract.CartDto;
 import edu.miu.cs.cs544.contract.OrderDto;
 
 public interface CartService {
-    CartDto getCart(Integer cartId);
+    CartDto getCart(Integer cartId) throws Exception;
 
     CartDto createNewCart(Integer customerId);
 
@@ -18,5 +18,5 @@ public interface CartService {
 
     CartDto setCreditCard(Integer cartId, Integer creditCardId);
 
-    OrderDto placeOrder(Integer cartId);
+    OrderDto placeOrder(Integer cartId) throws Exception;
 }
