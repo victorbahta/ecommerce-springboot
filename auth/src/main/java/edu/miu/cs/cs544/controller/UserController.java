@@ -20,16 +20,16 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDto){
-        Optional<User> optUser = userService.findByEmail(userDto.getEmail());
-        if(optUser.isPresent()){
-            User userInDB = optUser.get();
-            if(!userInDB.getId().equals(userDto.getId())) {
-                return new ResponseEntity<CustomErrorType>(new CustomErrorType("Email " + userDto.getEmail() + " already exist with different Id"), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO){
+        Optional<UserDTO> optUserDTO = userService.findByEmail(userDTO.getEmail());
+        if(optUserDTO.isPresent()){
+            UserDTO userInDB = optUserDTO.get();
+            if(!userInDB.getId().equals(userDTO.getId())) {
+                return new ResponseEntity<CustomErrorType>(new CustomErrorType("Email " + userDTO.getEmail() + " already exist with different Id"), HttpStatus.BAD_REQUEST);
             }
         }
 
-        userService.saveUser(userDto);
+        userService.saveUser(userDTO);
         return ResponseEntity.ok().build();
     }
 
