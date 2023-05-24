@@ -39,15 +39,9 @@ public class ReviewServiceImp implements ReviewService{
     public ReviewDTO addReview(int productId, ReviewDTO reviewDTO) {
         try {
             ComponentProduct product = componentProductRepository.getReferenceById(productId);
+            System.out.println(product);
             if (product == null) {
                 log.error("Could not find the product " + productId+ " by id");
-                return new ReviewDTO();
-            }
-
-            Optional<Integer> reviewCount = reviewRepository.countDistinctByProductAndOrderIdAndReviewer(productId
-                    , reviewDTO.getOrderId(), reviewDTO.getReviewerId());
-            if (!reviewCount.isPresent() || reviewCount.get() == 1) {
-                log.error("Customer " + reviewDTO.getReviewerId() + " could not review a product " + productId + " of order " + reviewDTO.getOrderId() + " twice");
                 return new ReviewDTO();
             }
 
@@ -56,7 +50,16 @@ public class ReviewServiceImp implements ReviewService{
             System.out.println(isBoughtProduct);
 
             if (!isBoughtProduct.isPresent() || !isBoughtProduct.get()) {
-                log.error("Customer " + reviewDTO.getReviewerId() + " could only review purchased products");
+                log.error("Customer " + reviewDTO.getReviewerId() + " could not review an unpurchased product");
+                return new ReviewDTO();
+            }
+
+            Optional<Integer> reviewCount = reviewRepository.countDistinctByProductAndOrderIdAndReviewer(productId
+                    , reviewDTO.getOrderId(), reviewDTO.getReviewerId());
+            System.out.println(reviewCount);
+            if (reviewCount.isPresent() && reviewCount.get() >= 1)
+            {
+                log.error("Customer " + reviewDTO.getReviewerId() + " could not review a product " + productId + " of order " + reviewDTO.getOrderId() + " twice");
                 return new ReviewDTO();
             }
 
