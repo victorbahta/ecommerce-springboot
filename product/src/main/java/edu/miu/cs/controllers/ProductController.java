@@ -75,7 +75,8 @@ public class ProductController {
         return new ResponseEntity<Boolean>(res, HttpStatus.OK);
     }
     @PostMapping("/{id}/reviews")
-    public ResponseEntity<?> addReviewToProduct(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO){
+    public ResponseEntity<?> addReviewToProduct(@RequestHeader("userId") Integer reviewerId, @PathVariable Integer id, @RequestBody ReviewDTO reviewDTO){
+        reviewDTO.setReviewerId(reviewerId);
         var res = reviewService.addReview(id, reviewDTO);
         return new ResponseEntity<ReviewDTO>(res, HttpStatus.OK);
     }

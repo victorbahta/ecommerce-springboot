@@ -17,6 +17,7 @@ public class Review {
     private String description;
     private int numberOfStar;
     private Date reviewDate;
+    private int orderId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "productId")
     private ComponentProduct product;

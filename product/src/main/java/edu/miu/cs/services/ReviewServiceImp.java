@@ -3,8 +3,11 @@ package edu.miu.cs.services;
 import com.netflix.discovery.converters.Auto;
 import edu.miu.cs.domains.ComponentProduct;
 import edu.miu.cs.domains.Review;
+import edu.miu.cs.domains.Reviewer;
+import edu.miu.cs.dto.CustomerDto;
 import edu.miu.cs.dto.ProductDTO;
 import edu.miu.cs.dto.ReviewDTO;
+import edu.miu.cs.feign.CustomerService;
 import edu.miu.cs.repositories.ComponentProductRepository;
 import edu.miu.cs.repositories.ReviewRepository;
 import org.modelmapper.ModelMapper;
@@ -26,16 +29,27 @@ public class ReviewServiceImp implements ReviewService{
     private ReviewRepository reviewRepository;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private CustomerService customerService;
     @Override
     public ReviewDTO addReview(int productId, ReviewDTO reviewDTO) {
         try {
-            var product = componentProductRepository.getReferenceById(productId);
+            ComponentProduct product = componentProductRepository.getReferenceById(productId);
+            CustomerDto customer = customerService.getCustomerById(reviewDTO.getReviewerId());
+            System.out.println(customer);
+
             if (product == null) {
                 return new ReviewDTO();
             }
             Review review = modelMapper.map(reviewDTO, Review.class);
             review.setReviewDate(new Date());
             review.setProduct(product);
+
+            Reviewer reviewer = new Reviewer();
+            reviewer.setId(customer.getId());
+            reviewer.setFirstname(customer.getFirstName());
+            reviewer.setLastname(customer.getLastName());
+            review.setReviewer(reviewer);
             return modelMapper.map(reviewRepository.save(review), ReviewDTO.class);
         } catch (Exception e) {
             return new ReviewDTO();
