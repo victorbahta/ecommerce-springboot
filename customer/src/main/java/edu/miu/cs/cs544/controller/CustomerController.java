@@ -84,10 +84,16 @@ public class CustomerController {
     }
 
     @GetMapping("/{customerId}/shipping-addresses/{shippingId}")
-    ResponseEntity<ShippingAddressDto> findCreditCardAll(@PathVariable Integer customerId, @PathVariable Integer shippingId) {
+    ResponseEntity<ShippingAddressDto> findShippingAll(@PathVariable Integer customerId, @PathVariable Integer shippingId) {
         return ResponseEntity.ok(shippingAddressService.findByShippingId(customerId,shippingId));
     }
 
+    @PostMapping("/{customerId}/shipping-addresses")
+    ResponseEntity<Boolean> addShippingAddress(@PathVariable Integer customerId, @RequestBody ShippingAddressDto shippingAddressDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(shippingAddressService.addNewShippingAddress(customerId,shippingAddressDto));
+    }
 
 
 
