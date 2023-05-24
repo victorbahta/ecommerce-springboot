@@ -27,6 +27,6 @@
 | Customer| http://localhost:8081/customers/{customerId}  | GET | | | Fetch a customer
 | Customer| http://localhost:8081/customers/{customerId}   | PUT| | | Update customer
 | Customer| http://localhost:8081/customers   | POST| | | Save customer
-| Customer| http://localhost:8081/customers/{customerId}/shipping-addressee | GET| | | Fetch all shipping address for a specific customer
+| Customer| http://localhost:8081/customers/{customerId}/shipping-addresses | GET| | | Fetch all shipping address for a specific customer
 | Customer| http://localhost:8081/customers/{customerId}/credit-cards | GET| | | Fetch all credit card for a specific customer
 | Customer| http://localhost:8081/customers/{customerId}/credit-cards/{creditCardId} | GET| | | Fetch credit card by credit card id for a specific customer
