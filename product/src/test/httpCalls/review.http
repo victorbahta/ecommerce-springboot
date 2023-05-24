@@ -1,14 +1,15 @@
 ###
-# Create a new cart
+# Create a new review for a product
 ###
-POST http://localhost:8080/products/52/reviews
+POST http://localhost:8080/products/103/reviews
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "title": "Review 1",
   "description": "description 1",
-  "numberOfStar": 3
+  "numberOfStar": 3,
+  "orderId": 653
 }
 
 ###

@@ -49,7 +49,10 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<?> addProduct(@RequestBody ProductDTO productDTO){
         var res = productService.add(productDTO);
-        return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+        if (res != null) {
+            return new ResponseEntity<ProductDTO>(res, HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Could not add new product", HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/{id}/productItem")
@@ -66,19 +69,28 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Integer id){
         boolean res = productService.delete(id);
-        return new ResponseEntity<Boolean>(res, HttpStatus.OK);
+        if (res == true) {
+            return new ResponseEntity<Boolean>(res, HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Could not delete product", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
         boolean res = productService.update(id, productDTO);
-        return new ResponseEntity<Boolean>(res, HttpStatus.OK);
+        if (res == true) {
+            return new ResponseEntity<Boolean>(res, HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Could not update product", HttpStatus.BAD_REQUEST);
     }
     @PostMapping("/{id}/reviews")
     public ResponseEntity<?> addReviewToProduct(@RequestHeader("userId") Integer reviewerId, @PathVariable Integer id, @RequestBody ReviewDTO reviewDTO){
         reviewDTO.setReviewerId(reviewerId);
-        var res = reviewService.addReview(id, reviewDTO);
-        return new ResponseEntity<ReviewDTO>(res, HttpStatus.OK);
+        ReviewDTO res = reviewService.addReview(id, reviewDTO);
+        if (res != null) {
+            return new ResponseEntity<ReviewDTO>(res, HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Add review is failed", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/{id}/reviews")

@@ -99,6 +99,11 @@ public class ProductServiceImp implements ProductService {
            return  false;
        }
 
+        Optional<String> productType = componentProductRepository.findProductTypeById(id);
+       if (!productType.isPresent()){
+           return false;
+       }
+       productDTO.setProductType(productType.get().equals(ProductType.composite.toString()) ? ProductType.composite : ProductType.individual);
         try {
             add(productDTO);
             return true;
@@ -147,7 +152,7 @@ public class ProductServiceImp implements ProductService {
         try {
             var productTypeById = componentProductRepository.findProductTypeById(id);
             if(productTypeById.isPresent()) {
-                if (productTypeById.equals(ProductType.individual.toString())) {
+                if (productTypeById.get().equals(ProductType.individual.toString())) {
                     IndividualProduct result = individualProductRepository.getReferenceById(id);
                     return modelMapper.map(result, ProductDTO.class);
                 } else {

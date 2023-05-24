@@ -1,5 +1,5 @@
 ###
-# Create a new product
+# Create a composite new product
 ###
 POST http://localhost:8080/products
 Authorization: Bearer {{token}}
@@ -9,17 +9,34 @@ Content-Type: application/json
   "productId": "001",
   "name": "Product 2",
   "description": "Product 2",
-  "double": 12.07,
+  "price": 12.07,
   "barcodeNumber": "0000111",
   "stock": 3,
-  "discountAmount": 0
+  "discountAmount": 10
 ,"productType": "composite"
+}
+###
+# Create a individual new product
+###
+POST http://localhost:8080/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product 2",
+  "description": "Product 2",
+  "price": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 5
+,"productType": "individual"
 }
 
 ###
 # Add product item a composite product
 ###
-POST http://localhost:8080/products/2/productItem
+POST http://localhost:8080/products/152/productItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -27,7 +44,7 @@ Content-Type: application/json
   "productId": "001",
   "name": "Product Item",
   "description": "Product Item",
-  "double": 12.07,
+  "price": 12.07,
   "barcodeNumber": "0000111",
   "stock": 3,
   "discountAmount": 0
@@ -37,35 +54,35 @@ Content-Type: application/json
 ###
 # Update a product
 ###
-PUT http://localhost:8080/products/1
+PUT http://localhost:8080/products/303
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
+  "id": 303,
   "productId": "001",
-  "name": "Product 2 Updated",
-  "description": "Product 2 Updated",
-  "double": 12.07,
+  "name": "Product 2 Up",
+  "description": "Product 2 Up",
+  "price": 12.07,
   "barcodeNumber": "0000111",
   "stock": 3,
-  "discountAmount": 0,
-  "productType": "composite"
+  "discountAmount": 0
 }
 
 ###
 # Delete a product
 ###
-DELETE http://localhost:8080/products/1
+DELETE http://localhost:8080/products/154
 Authorization: Bearer {{token}}
 
 
 ###
 # Get all products
 ###
-DELETE http://localhost:8080/products
+GET http://localhost:8080/products
 
 
 ###
 # Get product details
 ###
-DELETE http://localhost:8080/products/1
+GET http://localhost:8080/products/303

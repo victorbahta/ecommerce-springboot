@@ -1,8 +1,6 @@
 package edu.miu.cs.cs544;
 
-import edu.miu.cs.domains.CompositeProduct;
-import edu.miu.cs.domains.Review;
-import edu.miu.cs.domains.Reviewer;
+import edu.miu.cs.domains.*;
 import edu.miu.cs.dto.CustomerDTO;
 import edu.miu.cs.dto.ReviewDTO;
 import edu.miu.cs.feign.CustomerService;
@@ -16,11 +14,11 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.modelmapper.ModelMapper;
 import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 public class TestReviewService {
@@ -35,6 +33,8 @@ public class TestReviewService {
     private OrderService orderService;
     @Mock
     private ComponentProductRepository componentProductRepository;
+    @Mock
+    private ModelMapper modelMapper;
 
     @Before
     public void setUpAddReview() {
@@ -46,14 +46,17 @@ public class TestReviewService {
         review.setId(1);
         review.setTitle("Review 1");
         review.setOrderId(10);
-        CompositeProduct product = new CompositeProduct();
-        product.setId(50);
-        product.setName("Product name 50");
-        review.setProduct(product);
+
+        IndividualProduct product1 = new IndividualProduct();
+        product1.setId(50);
+        product1.setName("Product name 50");
+        review.setProduct(product1);
+
         Reviewer reviewer = new Reviewer();
         reviewer.setId(30);
         reviewer.setFirstname("Test Firstname");
         reviewer.setLastname("Test Lastname");
+        review.setReviewer(reviewer);
 
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setId(reviewer.getId());
@@ -67,14 +70,16 @@ public class TestReviewService {
         reviewDTO.setReviewerId(reviewer.getId());
 
         // Mock the behavior of the repository to save the review
-        when(reviewRepository.save(review)).thenReturn(review);
-        when(componentProductRepository.getReferenceById(product.getId())).thenReturn(product);
-        when(orderService.checkProductOrderedByCustomer(reviewer.getId(), review.getOrderId(), product.getId())).thenReturn(Optional.of(true));
-        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(product.getId(), review.getOrderId(), reviewer.getId())).thenReturn(Optional.of(0));
+        when(componentProductRepository.getReferenceById(product1.getId())).thenReturn(product1);
+        when(orderService.checkProductOrderedByCustomer(reviewer.getId(), review.getOrderId(), product1.getId())).thenReturn(Optional.of(true));
+        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(50, 10, 30)).thenReturn(Optional.empty());
+//        when(reviewRepository.countDistinctByProductAndOrderIdAndReviewer(product.getId(), review.getOrderId(), reviewer.getId())).thenReturn(Optional.empty());
         when(customerService.getCustomerById(reviewer.getId())).thenReturn(customerDTO);
+        when(modelMapper.map(reviewDTO, Review.class)).thenReturn(review);
+        when(reviewRepository.save(review)).thenReturn(review);
 
         // Call the service to add the review
-        reviewService.addReview(product.getId(), reviewDTO);
+        reviewService.addReview(product1.getId(), reviewDTO);
 
         // Verify that the repository's save method was called with the review
         verify(reviewRepository).save(review);

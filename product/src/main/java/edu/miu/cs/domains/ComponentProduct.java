@@ -2,6 +2,7 @@ package edu.miu.cs.domains;
 
 import jakarta.persistence.*;
 import lombok.Data;
+//import lombok.Data;
 
 import java.util.Collection;
 
@@ -30,4 +31,20 @@ public abstract class ComponentProduct {
 
     @OneToMany(mappedBy = "product")
     private Collection<Review> reviews;
+
+    @Override
+    public String toString() {
+        return "ComponentProduct{" +
+                "id=" + id +
+                ", productId='" + productId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", discountAmount=" + discountAmount +
+                ", image='" + image + '\'' +
+                ", barcodeNumber='" + barcodeNumber + '\'' +
+                ", stock=" + stock +
+                ", isActive=" + isActive +
+                '}';
+    }
 }
