@@ -11,7 +11,6 @@ import edu.miu.cs.repositories.IndividualProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -86,7 +85,7 @@ public class ProductServiceImp implements ProductService {
 
                return modelMapper.map(componentProductRepository.save(productFromId), ProductDTO.class);
            } else {
-               log.debug("addProductItem - Could not find the product by id");
+               log.debug("Could not find the product " + id + "by id");
                return null;
            }
        } catch (Exception e) {
@@ -153,13 +152,14 @@ public class ProductServiceImp implements ProductService {
                     return modelMapper.map(result, ProductDTO.class);
                 } else {
                     CompositeProduct compositeProduct = getCompositeProduct(id);
-                    var productList = compositeProduct.getProductItems().stream().filter(p -> p.isActive()).map(product -> modelMapper.map(product, ProductDTO.class)).toList();
+                    var productList = compositeProduct.getProductItems().stream().filter
+                            (p -> p.isActive()).map(product -> modelMapper.map(product, ProductDTO.class)).toList();
                     ProductDTO response = modelMapper.map(compositeProduct, ProductDTO.class);
                     response.setProducts(productList);
                     return response;
                 }
             } else {
-                log.debug("getById - Could not find the product by id");
+                log.debug("Could not find the product " + id + " by id");
                 return null;
             }
 

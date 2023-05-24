@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071f8a4-2315-4fe3-9cee-1c7c4b3589c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/customer/src/test/java/edu/miu/cs/cs544/controller/AccountControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/customer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/edu/miu/cs/cs544/service/ShippingAddressServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +35,6 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2QAXEFQuqDTyrlZLvTWHAvhW0Q4" />
   <component name="ProjectLevelVcsManager">
@@ -46,23 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MIU/EA/Final project/CS544-202305-07/customer/src/test/java/edu/miu/cs/cs544&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/MIU/EA/Final project/Demo/CS544-202305-07",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MIU\EA\Final project\CS544-202305-07\customer\src\test\java\edu\miu\cs\cs544" />
@@ -72,7 +71,14 @@
       <recent name="edu.miu.cs.cs544.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerApplicationTests">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
     <configuration name="CustomerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customer" />
       <extension name="coverage">
@@ -101,16 +107,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="order" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.Application" />
+    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.AuthApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="auth" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.AuthApplication" />
+    <configuration name="ConfigServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ConfigService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.configservice.ConfigServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,16 +135,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.cs544.OrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProductService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="product" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.Application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.cs.ProductApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.CustomerApplicationTests" />
-      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.ConfigServiceApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.ProductService" />
       <item itemvalue="Spring Boot.AuthApplication" />
       <item itemvalue="Spring Boot.CustomerApplication" />
@@ -159,6 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1684797245420</updated>
       <workItem from="1684797246553" duration="11549000" />
+      <workItem from="1684942436515" duration="1283000" />
     </task>
     <servers />
   </component>
