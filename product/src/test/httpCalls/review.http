@@ -1,0 +1,25 @@
+###
+# Create a new review for a product
+###
+POST http://localhost:8080/products/103/reviews
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Review 1",
+  "description": "description 1",
+  "numberOfStar": 3,
+  "orderId": 653
+}
+
+###
+# Get all reviews of a product
+###
+GET http://localhost:8080/products/2/reviews
+Content-Type: application/json
+
+{
+  "title": "Review 1",
+  "description": "description 1",
+  "numberOfStar": 3
+}

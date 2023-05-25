@@ -1,0 +1,92 @@
+###
+# Create a composite new product
+###
+POST http://localhost:8080/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product 2",
+  "description": "Product 2",
+  "price": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 10
+,"productType": "composite"
+}
+###
+# Create a individual new product
+###
+POST http://localhost:8080/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product 2",
+  "description": "Product 2",
+  "price": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 5
+,"productType": "individual"
+}
+
+###
+# Add product item a composite product
+###
+POST http://localhost:8080/products/402/productItem
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "001",
+  "name": "Product Item",
+  "description": "Product Item",
+  "price": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 0
+,"productType": "composite"
+}
+###
+# Get product details
+###
+GET http://localhost:8080/products/402
+
+###
+# Update a product
+###
+PUT http://localhost:8080/products/402
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": 402,
+  "productId": "001",
+  "name": "Product 2 Updated",
+  "description": "Product 2 Updated",
+  "price": 12.07,
+  "barcodeNumber": "0000111",
+  "stock": 3,
+  "discountAmount": 0
+}
+
+###
+# Delete a product
+###
+DELETE http://localhost:8080/products/154
+Authorization: Bearer {{token}}
+
+
+###
+# Get all products
+###
+GET http://localhost:8080/products
+
+
+###
+# Get product details
+###
+GET http://localhost:8080/products/303

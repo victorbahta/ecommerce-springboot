@@ -4,6 +4,8 @@ import edu.miu.cs.cs544.domain.User;
 import edu.miu.cs.cs544.dto.UserDTO;
 import edu.miu.cs.cs544.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,23 +16,30 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UserService {
-    private UserRepository userRepository;
-    private ModelMapper modelMapper;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper){
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.modelMapper = modelMapper;
-    }
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
     public void saveUser(UserDTO userDto){
         User user =modelMapper.map(userDto,User.class);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public Optional<User> findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public Optional<UserDTO> findByEmail(String email){
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if(optionalUser.isPresent()){
+            UserDTO userDTO = modelMapper.map(optionalUser.get(), UserDTO.class);
+            return Optional.of(userDTO);
+        }else{
+            return Optional.empty();
+        }
     }
 
     public List<User> getUsers(){

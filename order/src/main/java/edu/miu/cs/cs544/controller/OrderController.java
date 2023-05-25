@@ -35,7 +35,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Change order status")
-    @PostMapping("/{orderId}/change-status")
+    @PutMapping("/{orderId}/change-status")
     public OrderDto changeStatus(@PathVariable("orderId") Integer orderId,
             @RequestParam("status") String status) {
        if(!EnumUtils.isValidEnum(OrderStatus.class, StringUtils.capitalize(status)))
@@ -49,7 +49,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Return an order")
-    @PostMapping("/{orderId}/return")
+    @PutMapping("/{orderId}/return")
     public OrderDto returnOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.returnOrder(orderId);
@@ -60,7 +60,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Cancel an order")
-    @PostMapping("/{orderId}/cancel")
+    @PutMapping("/{orderId}/cancel")
     public OrderDto cancelOrder(@PathVariable("orderId") Integer orderId) {
         try {
             return orderService.cancelOrder(orderId);
