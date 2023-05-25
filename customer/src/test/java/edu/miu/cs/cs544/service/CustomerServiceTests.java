@@ -1,12 +1,15 @@
 package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.domain.Customer;
+import edu.miu.cs.cs544.dto.CustomerCredentialDto;
 import edu.miu.cs.cs544.dto.CustomerDto;
+import edu.miu.cs.cs544.feign.AuthService;
 import edu.miu.cs.cs544.repository.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -24,17 +27,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class CustomerServiceTests {
 
-//    @TestConfiguration
-//    static class CustomerServiceImplTestContextConfiguration {
-//        @Bean
-//        public CustomerService customerService() {
-//            return new CustomerServiceImpl();
-//        }
-//    }
+    @TestConfiguration
+    static class CustomerServiceImplTestContextConfiguration {
+        @Bean
+        public CustomerService customerService() {
+            return new CustomerServiceImpl();
+        }
 
-    @Autowired
-    private CustomerService customerService;
- 
+        @Bean
+        ModelMapper getModelMapper() {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper;
+        }
+
+
+
+    }
+
+
+//    @Autowired
+//    private CustomerService customerService;
+
+    @MockBean
+    AuthService authService;
+
     @MockBean
     private CustomerRepository customerRepository;
  
@@ -52,7 +68,7 @@ public class CustomerServiceTests {
     
     @Test
     public void whenValidCustomerNumberThenCustomerShouldBeFound() {
-        CustomerDto found = customerService.findById(999);
+        CustomerDto found = new CustomerServiceImplTestContextConfiguration().customerService().findById(999);
       
          assertThat(found.getId())
           .isEqualTo(999);

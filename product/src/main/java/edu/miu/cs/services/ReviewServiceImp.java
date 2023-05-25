@@ -41,23 +41,23 @@ public class ReviewServiceImp implements ReviewService{
             ComponentProduct product = componentProductRepository.getReferenceById(productId);
             if (product == null) {
                 log.error("Could not find the product " + productId+ " by id");
-                return new ReviewDTO();
-            }
-
-            Optional<Integer> reviewCount = reviewRepository.countDistinctByProductAndOrderIdAndReviewer(productId
-                    , reviewDTO.getOrderId(), reviewDTO.getReviewerId());
-            if (!reviewCount.isPresent() || reviewCount.get() == 1) {
-                log.error("Customer " + reviewDTO.getReviewerId() + " could not review a product " + productId + " of order " + reviewDTO.getOrderId() + " twice");
-                return new ReviewDTO();
+                return null;
             }
 
             Optional<Boolean> isBoughtProduct = orderService.checkProductOrderedByCustomer(reviewDTO.getReviewerId()
                     , reviewDTO.getOrderId(), productId);
-            System.out.println(isBoughtProduct);
 
             if (!isBoughtProduct.isPresent() || !isBoughtProduct.get()) {
-                log.error("Customer " + reviewDTO.getReviewerId() + " could only review purchased products");
-                return new ReviewDTO();
+                log.error("Customer " + reviewDTO.getReviewerId() + " could not review an unpurchased product");
+                return null;
+            }
+
+            Optional<Integer> reviewCount = reviewRepository.countDistinctByProductAndOrderIdAndReviewer(productId
+                    , reviewDTO.getOrderId(), reviewDTO.getReviewerId());
+            if (reviewCount.isPresent() && reviewCount.get() >= 1)
+            {
+                log.error("Customer " + reviewDTO.getReviewerId() + " could not review a product " + productId + " of order " + reviewDTO.getOrderId() + " twice");
+                return null;
             }
 
             CustomerDTO customer = customerService.getCustomerById(reviewDTO.getReviewerId());
@@ -73,7 +73,7 @@ public class ReviewServiceImp implements ReviewService{
             review.setReviewer(reviewer);
             return modelMapper.map(reviewRepository.save(review), ReviewDTO.class);
         } catch (Exception e) {
-            return new ReviewDTO();
+            return null;
         }
     }
 

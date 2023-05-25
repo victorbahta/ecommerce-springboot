@@ -31,7 +31,7 @@ public class Customer {
     private String email;
 
     @JsonProperty
-    private boolean isAdmin;
+    private Boolean isAdmin;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billingAddressId")

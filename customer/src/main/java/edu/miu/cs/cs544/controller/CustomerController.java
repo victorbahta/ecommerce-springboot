@@ -33,7 +33,11 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<CustomerDto> findById(@PathVariable Integer id) {
+    ResponseEntity<CustomerDto> findById(@PathVariable Integer id, @RequestHeader(name = "userId", required = false) Integer customerId) {
+        if(null != customerId && !id.equals(customerId)){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
         return ResponseEntity.ok(customerService.findById(id));
     }
 

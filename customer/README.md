@@ -88,3 +88,6 @@ Fetch shipping address by shipping id for a specific customer
     ]
 }
 ```
+
+## Class diagram of customer
+![img.png](img.png)

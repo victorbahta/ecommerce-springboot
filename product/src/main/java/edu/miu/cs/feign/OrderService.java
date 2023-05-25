@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @FeignClient("ORDERSERVICE")
 public interface OrderService {
-    @GetMapping(value = "/verified")
+    @GetMapping(value = "/orders/verified")
     Optional<Boolean> checkProductOrderedByCustomer(@RequestParam("customerId") Integer customerId, @RequestParam("orderId") Integer orderId, @RequestParam("productId") Integer productId);
 }

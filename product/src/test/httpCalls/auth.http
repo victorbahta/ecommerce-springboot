@@ -1,0 +1,34 @@
+###
+# Admin login - Authentication via API Gateway, get access token and assign to `token` variable
+###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "admin1@gmail.com",
+  "password": "1234"
+}
+
+
+> {%
+    client.global.set("token", response.body.access_token);
+%}
+
+
+###
+# Customer login - Authentication via API Gateway, get access token and assign to `token` variable
+###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "user1@gmail.com",
+  "password": "1234"
+}
+
+
+> {%
+    client.global.set("token", response.body.access_token);
+%}
