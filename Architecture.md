@@ -8,3 +8,6 @@
 
 # Class diagram of Product service
 ![Screenshot 2023-05-24 at 9.12.14 PM.png](/.attachments/Screenshot%202023-05-24%20at%209.12.14%20PM-1b122e5d-f108-498d-99af-0576837ee1b2.png)
+
+# Class diagram for Order service
+![Screenshot 2023-05-24 at 21.17.47.png](/.attachments/Screenshot%202023-05-24%20at%2021.17.47-b88ec1ab-e453-4e19-9306-35f2a61f27be.png)
