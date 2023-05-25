@@ -1,6 +1,5 @@
 # Overview Architecture
-
-![EA architect.drawio.png](/.attachments/EA%20architect.drawio-3e000f0e-4c52-4b35-878f-b72ee4117b57.png)
+![EA architect_2.drawio (1).png](/.attachments/EA%20architect_2.drawio%20(1)-314e6830-28bc-4757-b80a-fa2b09f6d748.png)
 
 # Class diagram of customer service
 
