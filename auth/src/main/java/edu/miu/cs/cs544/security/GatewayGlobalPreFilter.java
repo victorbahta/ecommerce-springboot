@@ -1,4 +1,4 @@
-package edu.miu.cs.cs544.security.config;
+package edu.miu.cs.cs544.security;
 
 import edu.miu.cs.cs544.domain.User;
 import edu.miu.cs.cs544.repository.UserRepository;

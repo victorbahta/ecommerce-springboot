@@ -33,7 +33,7 @@ public class AuthenticationService {
         if(optionalUser.isPresent()){
             String hash_password = optionalUser.get().getPassword();
             if(passwordEncoder.matches(request.getPassword(), hash_password)) {
-                AuthenticationResponse authenticationResponse = new AuthenticationResponse(jwtService.generateToken(optionalUser.get()));
+                AuthenticationResponse authenticationResponse = new AuthenticationResponse(jwtService.generateToken(optionalUser.get()), optionalUser.get().getId());
                 return new ResponseEntity<AuthenticationResponse>(authenticationResponse, HttpStatus.OK);
             }else{
                 return new ResponseEntity<CustomErrorType>(new CustomErrorType("UNAUTHORIZED"), HttpStatus.UNAUTHORIZED);
