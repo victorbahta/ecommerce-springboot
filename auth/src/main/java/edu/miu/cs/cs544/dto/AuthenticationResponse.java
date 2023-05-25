@@ -7,8 +7,12 @@ public class AuthenticationResponse {
   @JsonProperty("access_token")
   private String accessToken;
 
-  public AuthenticationResponse(String accessToken) {
+  @JsonProperty("user_id")
+  private Integer userId;
+
+  public AuthenticationResponse(String accessToken, Integer userId) {
     this.accessToken = accessToken;
+    this.userId = userId;
   }
   public AuthenticationResponse(){}
 
@@ -18,5 +22,12 @@ public class AuthenticationResponse {
 
   public void setAccessToken(String accessToken) {
     this.accessToken = accessToken;
+  }
+
+  public Integer getUserId() {
+    return userId;
+  }
+  public void setUserId(Integer userId) {
+    this.userId = userId;
   }
 }
