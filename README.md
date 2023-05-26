@@ -19,6 +19,10 @@
 | EurekaService | 8761 |
 | ConfigurationService | 8088 |
 
+# Overview diagram
+![overview-diagram]
+(https://github.com/victorbahta/ecommerce-springboot/blob/master/diagram.png)
+
 # API endpoints list
 
 | Service        | API                  | Method | No Authentication | Require admin | Note                                                        |
