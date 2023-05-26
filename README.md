@@ -20,8 +20,9 @@
 | ConfigurationService | 8088 |
 
 # Overview diagram
-![overview-diagram]
-(https://github.com/victorbahta/ecommerce-springboot/blob/master/diagram.png)
+
+<img
+src="https://github.com/victorbahta/ecommerce-springboot/blob/master/diagram.png" alt="overview diagram">
 
 # API endpoints list
 
